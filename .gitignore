@@ -1,0 +1,35 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+/venv/
+env/
+
+# Editor and OS files
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs and local database
+*.log
+*.sqlite3
+
+# Python dependency files
+Pipfile
+Pipfile.lock
+poetry.lock
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+*.env
+
+# Build and distribution files
+build/
+dist/
+*.egg-info/

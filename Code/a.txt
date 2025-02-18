@@ -1,0 +1,10 @@
+2. Chatbot Interface
+
+FR5: The chatbot should have a user-friendly chat interface where users can interact with three key modules:
+General Queries (University Search) – RAG-Based
+Professor Search – Agentic Workflow
+SOP Review – LLM-Based
+FR6: The chatbot should support both text and voice input for interactions.
+FR7: The chatbot should offer auto-suggestions based on partial queries.
+FR8: The chatbot should allow follow-up questions within the same session.
+analytics.

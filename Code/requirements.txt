@@ -1,0 +1,6 @@
+scrapy
+pydantic_ai
+pydantic
+python-dotenv
+beautifulsoup4
+requests
