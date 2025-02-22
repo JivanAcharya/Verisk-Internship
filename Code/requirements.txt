@@ -1,6 +1,16 @@
+pandas
 scrapy
 pydantic_ai
 pydantic
 python-dotenv
 beautifulsoup4
 requests
+scrapy-playwright
+serpapi
+langchain
+langchain_community
+langchain_huggingface
+langchain_chroma
+langchain_text_splitters
+langchain_groq
+reportlab
