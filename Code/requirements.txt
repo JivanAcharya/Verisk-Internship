@@ -9,8 +9,10 @@ scrapy-playwright
 serpapi
 langchain
 langchain_community
-langchain_huggingface
+langchain-huggingface
 langchain_chroma
 langchain_text_splitters
 langchain_groq
 reportlab
+jq
+langgraph
