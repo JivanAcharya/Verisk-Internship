@@ -16,3 +16,8 @@ langchain_groq
 reportlab
 jq
 langgraph
+streamlit
+streamlit-chat
+uvicorn
+fastapi
+pypdf
