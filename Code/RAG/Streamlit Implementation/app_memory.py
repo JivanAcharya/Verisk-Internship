@@ -8,7 +8,7 @@ from langchain_chroma import Chroma
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
-from psycopg_pool import ConnectionPool
+from psycopg_pool import ConnectionPool 
 import psycopg
 from dotenv import load_dotenv
 
@@ -37,7 +37,7 @@ def setup_database():
 setup_database()
 
 # Initialize model and embeddings
-llm = init_chat_model("llama-3.1-8b-instant", model_provider="groq")
+llm = init_chat_model("llama-3.3-70b-versatile", model_provider="groq")
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
 CHROMA_PERSIST_DIR = "chroma_db"
 
@@ -45,15 +45,15 @@ CHROMA_PERSIST_DIR = "chroma_db"
 if os.path.exists(CHROMA_PERSIST_DIR):
     vector_store = Chroma(persist_directory=CHROMA_PERSIST_DIR, embedding_function=embeddings)
 else:
-    loader = TextLoader("university_data.txt")
+    loader = TextLoader("top_uni_detailed.txt")
     docs = loader.load()
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=300)
     all_splits = text_splitter.split_documents(docs)
     vector_store = Chroma.from_documents(all_splits, embeddings, persist_directory=CHROMA_PERSIST_DIR)
 
 # Retrieve relevant documents
 def retrieve_documents(query: str):
-    retrieved_docs = vector_store.similarity_search(query, k=2)
+    retrieved_docs = vector_store.similarity_search(query, k=3)
     serialized_docs =  "\n\n".join(f"\nContent: {doc.page_content}" for doc in retrieved_docs)
     # print("\n Retrieved Docs are : ", retrieved_docs)
     return serialized_docs
@@ -105,6 +105,7 @@ def generate_response(user_input, session_id):
     print("\n\n User input is ", user_input)
     print("\n\nQuery is", query)
     print("\n\nNew query based on previous chat history : ", new_query)
+    print("\n\nRetreieved content based on new query : ", retrieved_content)
 
     ##final prompt for the LLM using the new written query
     prompt_template = ChatPromptTemplate.from_messages([
@@ -112,14 +113,13 @@ def generate_response(user_input, session_id):
      "You are UniBro, an AI consultant specializing in U.S. university admissions. "
      "Your responses must be strictly based on the retrieved information—do not rely on external or general knowledge. "
      "Maintain accuracy, clarity, and conciseness while ensuring relevance to the user's previous chat history."
-     "Never start your response with Based on the retrieved information, as this is already implied."
+     "Never start your response with 'Based on the retrieved information', as this is already implied."
     ),
     # ("system", f"Previous Chat History (for context, if relevant):\n{chat_context}"),
     ("system", f"Retrieved Information (use this exclusively for answering):\n{retrieved_content}"),
     ("human", "{input}")
 ])
     prompt = prompt_template.format(input=new_query)
-    print(prompt)
     response = llm.invoke(prompt)
     return response.content
 
