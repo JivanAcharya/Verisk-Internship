@@ -777,3 +777,677 @@ Website:
 - https://www.duke.edu/
 - https://www.cs.duke.edu/
 - https://pratt.duke.edu/
+
+
+Northwestern University
+
+Rank: 10 (National)
+Location: Evanston, IL, United States
+Aliases: NU, Northwestern
+Number of Students: Approximately 21,000 (8,000 undergraduates, 13,000 graduate and professional students)
+Percentage of International Students: Approximately 19% (Graduate Students)
+
+Subjects Offered:
+- Engineering
+- Computer Science
+- Information Technology
+- Data Science
+- Artificial Intelligence
+- Cybersecurity
+
+Graduate Programs in Computer Science and IT:
+- Master of Science (M.S.) in Computer Science: 1-2 years, on-campus
+- Master of Science (M.S.) in Artificial Intelligence: 1-2 years, on-campus
+- Master of Science (M.S.) in Information Technology: 1-2 years, on-campus
+- Doctor of Philosophy (Ph.D.) in Computer Science: 5-6 years, on-campus
+
+Admissions:
+- Minimum GPA: No official minimum, but a strong academic record is essential
+- GRE: Optional or varies by program
+- English Proficiency: TOEFL or IELTS scores required for non-native English speakers
+- Application Components: 3 Letters of Recommendation, Statement of Purpose, Resume/CV
+- Deadlines: Vary by program; typically around December 15 for Ph.D. programs
+- Application Fee: Approximately $95
+- Acceptance Rate: Varies by program; competitive admissions process
+
+Tuition:
+- Master's Programs: Approximately $22,304 per quarter (3-4 courses) for the 2024-2025 academic year
+- Ph.D. Programs: Tuition is covered by funding packages; additional fees may apply
+- Additional Fees: Health services fee ($276 per quarter), student activity fee ($125 per quarter), and health insurance ($5,571 annually)
+
+Funding:
+- Ph.D. Students: Typically fully funded, including tuition, health insurance, and a monthly stipend for living expenses through fellowships, teaching assistantships, or research assistantships
+- Master's Students: Limited funding opportunities; financial aid is not available in the form of fellowships, research assistantships, or teaching assistantships. However, several types of loans are available.
+
+Housing:
+- On-Campus: Limited availability; priority for first-year graduate students
+- Off-Campus: Numerous options available in the Evanston and Chicago areas; costs vary depending on location and amenities
+
+Career Outcomes:
+- Employment Rate: Approximately 90% job placement within 6 months of graduation
+- Average Salary: Varies by program and industry; competitive within respective fields
+
+Visa:
+- Optional Practical Training (OPT): Up to 36 months for STEM graduates
+
+Website:
+- https://www.northwestern.edu/
+- https://www.mccormick.northwestern.edu/computer-science/
+- https://www.mccormick.northwestern.edu/computer-science/academics/graduate/
+
+
+New York University (NYU)
+
+Rank: 25 (National)
+Location: New York, NY, United States
+Aliases: NYU
+Number of Students: Approximately 58,000 (29,000 undergraduates, 29,000 graduate and professional students)
+Percentage of International Students: Approximately 22% (Graduate Students)
+
+Subjects Offered:
+- Engineering
+- Computer Science
+- Information Technology
+- Data Science
+- Artificial Intelligence
+- Cybersecurity
+
+Graduate Programs in Computer Science and IT:
+- Master of Science (M.S.) in Computer Science: 1-2 years, on-campus
+- Master of Science (M.S.) in Cybersecurity: 1-2 years, on-campus and online
+- Master of Science (M.S.) in Information Systems: 1-2 years, on-campus
+- Doctor of Philosophy (Ph.D.) in Computer Science: 5-6 years, on-campus
+
+Admissions:
+- Minimum GPA: No official minimum, but a strong academic record is essential
+- GRE: Optional or varies by program
+- English Proficiency: TOEFL or IELTS scores required for non-native English speakers
+- Application Components: Letters of Recommendation, Statement of Purpose, Resume/CV
+- Deadlines: Vary by program; typically around December 15 for Ph.D. programs
+- Application Fee: Approximately $85
+- Acceptance Rate: Varies by program; competitive admissions process
+
+Tuition:
+- Master's Programs: Approximately $52,480 per year :contentReference[oaicite:0]{index=0}
+- Ph.D. Programs: Tuition is covered by funding packages; additional fees may apply
+- Additional Fees: University fees, health insurance, and other incidental costs apply
+
+Funding:
+- Ph.D. Students: Typically fully funded, including tuition, fees, and a stipend for living expenses through fellowships, teaching assistantships, or research assistantships
+- Master's Students: Limited funding opportunities; students may seek scholarships or assistantships, which are competitive and not guaranteed. For example, the ASPIRE Scholarship provides 100% tuition coverage for 2 years plus a stipend in exchange for service in a U.S. government agency working in cybersecurity after graduation :contentReference[oaicite:1]{index=1}
+
+Housing:
+- On-Campus: Limited availability; priority for first-year graduate students
+- Off-Campus: Numerous options available in the New York City area; costs vary depending on location and amenities
+
+Career Outcomes:
+- Employment Rate: Approximately 90% job placement within 6 months of graduation
+- Average Salary: Varies by program and industry; competitive within respective fields
+
+Visa:
+- Optional Practical Training (OPT): Up to 36 months for STEM graduates
+
+Website:
+- https://www.nyu.edu/
+- https://cs.nyu.edu/
+- https://engineering.nyu.edu/academics/programs/computer-science-ms
+
+
+University of California, San Diego (UC San Diego)
+
+Rank: 34 (National)
+Location: La Jolla, CA, United States
+Aliases: UCSD, UC San Diego
+Number of Students: Approximately 40,000 (30,000 undergraduates, 10,000 graduate and professional students)
+Percentage of International Students: Approximately 20% (Graduate Students)
+
+Subjects Offered:
+- Engineering
+- Computer Science
+- Information Technology
+- Data Science
+- Artificial Intelligence
+- Cybersecurity
+
+Graduate Programs in Computer Science and IT:
+- Master of Science (M.S.) in Computer Science: 1-2 years, on-campus
+- Master of Advanced Studies (M.A.S.) in Data Science and Engineering: 1-2 years, on-campus
+- Doctor of Philosophy (Ph.D.) in Computer Science: 5-6 years, on-campus
+
+Admissions:
+- Minimum GPA: No official minimum, but a strong academic record is essential
+- GRE: Optional or varies by program
+- English Proficiency: TOEFL or IELTS scores required for non-native English speakers
+- Application Components: Letters of Recommendation, Statement of Purpose, Resume/CV
+- Deadlines: Vary by program; typically around December 15 for Ph.D. programs
+- Application Fee: Approximately $120 for international applicants
+- Acceptance Rate: Varies by program; competitive admissions process
+
+Tuition:
+- Master's Programs: Approximately $17,000 per year for California residents; $32,000 per year for non-residents
+- Ph.D. Programs: Tuition is covered by funding packages; additional fees may apply
+- Additional Fees: University fees, health insurance, and other incidental costs apply
+
+Funding:
+- Ph.D. Students: Typically fully funded, including tuition, fees, and a stipend for living expenses through fellowships, teaching assistantships, or research assistantships
+- Master's Students: Limited funding opportunities; students may seek scholarships or assistantships, which are competitive and not guaranteed
+
+Housing:
+- On-Campus: Limited availability; priority for first-year graduate students
+- Off-Campus: Numerous options available in the San Diego area; costs vary depending on location and amenities
+
+Career Outcomes:
+- Employment Rate: Approximately 90% job placement within 6 months of graduation
+- Average Salary: Varies by program and industry; competitive within respective fields
+
+Visa:
+- Optional Practical Training (OPT): Up to 36 months for STEM graduates
+
+Website:
+- https://www.ucsd.edu/
+- https://cse.ucsd.edu/
+- https://datascience.ucsd.edu/
+
+
+Georgia Institute of Technology (Georgia Tech)
+
+Rank: 4 (National Public Universities)
+Location: Atlanta, GA, United States
+Aliases: Georgia Tech, GT
+Number of Students: Approximately 39,000 (16,000 undergraduates, 23,000 graduate and professional students)
+Percentage of International Students: Approximately 20% (Graduate Students)
+
+Subjects Offered:
+- Engineering
+- Computer Science
+- Information Technology
+- Data Science
+- Artificial Intelligence
+- Cybersecurity
+
+Graduate Programs in Computer Science and IT:
+- Master of Science (M.S.) in Computer Science: 1-2 years, on-campus
+- Online Master of Science (OMS) in Computer Science: 1-3 years, online
+- Master of Science (M.S.) in Cybersecurity: 1-2 years, on-campus
+- Doctor of Philosophy (Ph.D.) in Computer Science: 5-6 years, on-campus
+
+Admissions:
+- Minimum GPA: No official minimum, but a strong academic record is essential
+- GRE: Optional or varies by program; for the MS program, applicant scores are expected to be at least 153 in the Verbal, 155 in the Quantitative, and 3.0 in the Analytical sections
+- English Proficiency: TOEFL or IELTS scores required for non-native English speakers
+- Application Components: Letters of Recommendation, Statement of Purpose, Resume/CV
+- Deadlines: Vary by program; typically around December 15 for Ph.D. programs
+- Application Fee: Approximately $85
+- Acceptance Rate: Approximately 12% for the College of Computing
+
+Tuition:
+- Master's Programs: Approximately $26,000 per year
+- Ph.D. Programs: Tuition is covered by funding packages; additional fees may apply
+- Additional Fees: University fees, health insurance, and other incidental costs apply
+
+Funding:
+- Ph.D. Students: Typically fully funded, including tuition, fees, and a stipend for living expenses through fellowships, teaching assistantships, or research assistantships
+- Master's Students: Limited funding opportunities; students may seek scholarships or assistantships, which are competitive and not guaranteed
+
+Housing:
+- On-Campus: Limited availability; priority for first-year graduate students
+- Off-Campus: Numerous options available in the Atlanta area; costs vary depending on location and amenities
+
+Career Outcomes:
+- Employment Rate: Approximately 90% job placement within 6 months of graduation
+- Average Salary: Varies by program and industry; competitive within respective fields
+
+Visa:
+- Optional Practical Training (OPT): Up to 36 months for STEM graduates
+
+Website:
+- https://www.gatech.edu/
+- https://www.cc.gatech.edu/
+- https://omscs.gatech.edu/
+
+
+University of Illinois at Urbana-Champaign (UIUC)
+
+Rank: 14 (National Public Universities)
+Location: Urbana and Champaign, IL, United States
+Aliases: UIUC, Illinois
+Number of Students: Approximately 56,000 (33,500 undergraduates, 22,500 graduate and professional students)
+Percentage of International Students: Approximately 22% (Graduate Students)
+
+Subjects Offered:
+- Engineering
+- Computer Science
+- Information Technology
+- Data Science
+- Artificial Intelligence
+- Cybersecurity
+
+Graduate Programs in Computer Science and IT:
+- Master of Science (M.S.) in Computer Science: 1-2 years, on-campus
+- Professional Master of Computer Science (M.C.S.): 1-2 years, on-campus and online
+- Online Master of Computer Science (M.C.S.) in Data Science: 1-3 years, online
+- Doctor of Philosophy (Ph.D.) in Computer Science: 5-6 years, on-campus
+
+Admissions:
+- Minimum GPA: No official minimum, but a strong academic record is essential
+- GRE: Optional or varies by program
+- English Proficiency: TOEFL or IELTS scores required for non-native English speakers
+- Application Components: Letters of Recommendation, Statement of Purpose, Resume/CV
+- Deadlines: Vary by program; typically around December 15 for Ph.D. programs
+- Application Fee: Approximately $90
+- Acceptance Rate: Varies by program; competitive admissions process
+
+Tuition:
+- Master's Programs: Approximately $34,000 per year for non-residents
+- Ph.D. Programs: Tuition is covered by funding packages; additional fees may apply
+- Additional Fees: University fees, health insurance, and other incidental costs apply
+
+Funding:
+- Ph.D. Students: Typically fully funded, including tuition, fees, and a stipend for living expenses through fellowships, teaching assistantships, or research assistantships
+- Master's Students: Limited funding opportunities; students may seek scholarships or assistantships, which are competitive and not guaranteed
+
+Housing:
+- On-Campus: Limited availability; priority for first-year graduate students
+- Off-Campus: Numerous options available in the Urbana-Champaign area; costs vary depending on location and amenities
+
+Career Outcomes:
+- Employment Rate: Approximately 90% job placement within 6 months of graduation
+- Average Salary: Varies by program and industry; competitive within respective fields
+
+Visa:
+- Optional Practical Training (OPT): Up to 36 months for STEM graduates
+
+Website:
+- https://illinois.edu/
+- https://cs.illinois.edu/
+- https://cs.illinois.edu/academics/graduate
+
+
+University of Texas at Austin (UT Austin)
+
+Rank: 10 (National Public Universities)
+Location: Austin, TX, United States
+Aliases: UT Austin, UT
+Number of Students: Approximately 51,000 (40,000 undergraduates, 11,000 graduate and professional students)
+Percentage of International Students: Approximately 15% (Graduate Students)
+
+Subjects Offered:
+- Engineering
+- Computer Science
+- Information Technology
+- Data Science
+- Artificial Intelligence
+- Cybersecurity
+
+Graduate Programs in Computer Science and IT:
+- Master of Science (M.S.) in Computer Science: 2 years, on-campus
+- Online Master of Science (M.S.) in Computer Science: 1-3 years, online :contentReference[oaicite:0]{index=0}
+- Doctor of Philosophy (Ph.D.) in Computer Science: 5-6 years, on-campus
+
+Admissions:
+- Minimum GPA: No official minimum, but a strong academic record is essential
+- GRE: Optional or varies by program
+- English Proficiency: TOEFL or IELTS scores required for non-native English speakers
+- Application Components: Letters of Recommendation, Statement of Purpose, Resume/CV
+- Deadlines: Vary by program; typically around December 15 for Ph.D. programs
+- Application Fee: Approximately $90
+- Acceptance Rate: Varies by program; competitive admissions process
+
+Tuition:
+- Master's Programs: Approximately $35,000 – $45,000 for the entire program :contentReference[oaicite:1]{index=1}
+- Ph.D. Programs: Tuition is covered by funding packages; additional fees may apply
+- Additional Fees: University fees, health insurance, and other incidental costs apply
+
+Funding:
+- Ph.D. Students: Typically fully funded, including tuition, fees, and a stipend for living expenses through fellowships, teaching assistantships, or research assistantships. For example, the Provost's or Calhoun Graduate Excellence Fellowship provides a 9-month stipend of $24,300, up to $4,000 over four years in research and travel support, a waiver of tuition and fees, and University medical benefits, totaling over $153,000 per recipient. :contentReference[oaicite:2]{index=2}
+- Master's Students: Limited funding opportunities; students may seek scholarships or assistantships, which are competitive and not guaranteed. Financial aid options are available through federal, state, and institutional programs. :contentReference[oaicite:3]{index=3}
+
+Housing:
+- On-Campus: Limited availability; priority for first-year graduate students
+- Off-Campus: Numerous options available in the Austin area; costs vary depending on location and amenities
+
+Career Outcomes:
+- Employment Rate: Approximately 90% job placement within 6 months of graduation
+- Average Salary: Varies by program and industry; competitive within respective fields
+
+Visa:
+- Optional Practical Training (OPT): Up to 36 months for STEM graduates
+
+Website:
+- https://www.utexas.edu/
+- https://www.cs.utexas.edu/
+- https://www.cs.utexas.edu/graduate-program
+
+
+University of Wisconsin-Madison (UW-Madison)
+
+Rank: 13 (National Public Universities)
+Location: Madison, WI, United States
+Aliases: UW-Madison, Wisconsin
+Number of Students: Approximately 45,000 (31,000 undergraduates, 14,000 graduate and professional students)
+Percentage of International Students: Approximately 15% (Graduate Students)
+
+Subjects Offered:
+- Engineering
+- Computer Science
+- Information Technology
+- Data Science
+- Artificial Intelligence
+- Cybersecurity
+
+Graduate Programs in Computer Science and IT:
+- Master of Science (M.S.) in Computer Sciences: 1-2 years, on-campus
+- Professional Master's Program (PMP) in Computer Sciences: 1-2 years, on-campus
+- Doctor of Philosophy (Ph.D.) in Computer Sciences: 5-6 years, on-campus
+
+Admissions:
+- Minimum GPA: 3.0 on a 4.0 scale
+- GRE: Not required
+- English Proficiency: TOEFL or IELTS scores required for non-native English speakers
+- Application Components: Letters of Recommendation, Statement of Purpose, Resume/CV
+- Deadlines: December 15 for fall admission
+- Application Fee: Approximately $75
+- Acceptance Rate: Varies by program; competitive admissions process
+
+Tuition:
+- Master's Programs: Approximately $25,652 per year for non-residents
+- Ph.D. Programs: Tuition is covered by funding packages; additional fees may apply
+- Additional Fees: University fees, health insurance, and other incidental costs apply
+
+Funding:
+- Ph.D. Students: Typically fully funded, including tuition, fees, and a stipend for living expenses through fellowships, teaching assistantships, or research assistantships
+- Master's Students: Limited funding opportunities; students may seek scholarships or assistantships, which are competitive and not guaranteed
+
+Housing:
+- On-Campus: Limited availability; priority for first-year graduate students
+- Off-Campus: Numerous options available in the Madison area; costs vary depending on location and amenities
+
+Career Outcomes:
+- Employment Rate: Approximately 90% job placement within 6 months of graduation
+- Average Salary: Varies by program and industry; competitive within respective fields
+
+Visa:
+- Optional Practical Training (OPT): Up to 36 months for STEM graduates
+
+Website:
+- https://www.wisc.edu/
+- https://www.cs.wisc.edu/
+- https://grad.wisc.edu/
+
+
+Brown University
+
+Rank: 13 (National Universities)
+Location: Providence, RI, United States
+Aliases: Brown
+Number of Students: Approximately 10,000 (6,500 undergraduates, 3,500 graduate and professional students)
+Percentage of International Students: Approximately 20% (Graduate Students)
+
+Subjects Offered:
+- Engineering
+- Computer Science
+- Data Science
+- Cybersecurity
+
+Graduate Programs in Computer Science and Related Fields:
+- Master of Science (Sc.M.) in Computer Science: 1-2 years, on-campus
+- Master of Science (Sc.M.) in Data Science: 1-2 years, on-campus
+- Master of Science (Sc.M.) in Cybersecurity: 1-2 years, on-campus
+- Doctor of Philosophy (Ph.D.) in Computer Science: 5-6 years, on-campus
+
+Admissions:
+- Minimum GPA: No official minimum; strong academic performance expected
+- GRE: Not required
+- English Proficiency: TOEFL or IELTS scores required for non-native English speakers
+- Application Components: Academic transcripts, Letters of Recommendation, Statement of Purpose
+- Deadlines: Typically around January 17 for fall admission
+- Application Fee: Approximately $75
+- Acceptance Rate: Varies by program; competitive admissions process
+
+Tuition:
+- Master's Programs: Approximately $9,759 per course; typically 8 courses required, totaling around $78,072 for the entire program
+- Ph.D. Programs: Tuition is covered by funding packages; additional fees may apply
+- Additional Fees: Mandatory fees approximately $1,350 annually; health insurance approximately $4,636 annually (waivable with proof of coverage)
+
+Funding:
+- Ph.D. Students: Typically fully funded, including tuition, fees, and a stipend for living expenses through fellowships, teaching assistantships, or research assistantships
+- Master's Students: Limited funding opportunities; a small number of full-tuition scholarships are available to applicants from disadvantaged socioeconomic backgrounds; teaching or research assistantships are generally not available
+
+Housing:
+- On-Campus: Limited availability for graduate students
+- Off-Campus: Numerous options available in the Providence area; costs vary depending on location and amenities
+
+Career Outcomes:
+- Employment Rate: High job placement within 6 months of graduation
+- Average Salary: Varies by program and industry; competitive within respective fields
+
+Visa:
+- Optional Practical Training (OPT): Up to 36 months for STEM graduates
+
+Website:
+- https://www.brown.edu/
+- https://cs.brown.edu/
+- https://www.brown.edu/academics/gradschool/
+
+
+University of California, Davis (UC Davis)
+
+Rank: 38 (National Universities)
+Location: Davis, CA, United States
+Aliases: UC Davis, UCD
+Number of Students: Approximately 39,000 (30,000 undergraduates, 9,000 graduate and professional students)
+Percentage of International Students: Approximately 15% (Graduate Students)
+
+Subjects Offered:
+- Engineering
+- Computer Science
+- Information Technology
+- Data Science
+- Artificial Intelligence
+- Cybersecurity
+
+Graduate Programs in Computer Science and IT:
+- Master of Science (M.S.) in Computer Science: 1.5 - 2 years, on-campus
+- Doctor of Philosophy (Ph.D.) in Computer Science: 4 - 5 years, on-campus
+
+Admissions:
+- Minimum GPA: 3.0 on a 4.0 scale
+- GRE: Not required
+- English Proficiency: TOEFL minimum score of 80 (Internet-based) or IELTS minimum of 7.0
+- Application Components: Academic transcripts, Letters of Recommendation, Statement of Purpose
+- Deadlines: Typically around December 15 for fall admission
+- Application Fee: Approximately $120 for international applicants
+- Acceptance Rate: Varies by program; competitive admissions process
+
+Tuition:
+- Master's Programs: Approximately $29,118 per year for non-residents
+- Ph.D. Programs: Tuition is covered by funding packages; additional fees may apply
+- Additional Fees: University fees, health insurance, and other incidental costs apply
+
+Funding:
+- Ph.D. Students: Typically fully funded, including tuition, fees, and a stipend for living expenses through fellowships, teaching assistantships, or research assistantships
+- Master's Students: Limited funding opportunities; students may seek scholarships or assistantships, which are competitive and not guaranteed
+
+Housing:
+- On-Campus: Limited availability; priority for first-year graduate students
+- Off-Campus: Numerous options available in the Davis area; costs vary depending on location and amenities
+
+Career Outcomes:
+- Employment Rate: Approximately 90% job placement within 6 months of graduation
+- Average Salary: Varies by program and industry; competitive within respective fields
+
+Visa:
+- Optional Practical Training (OPT): Up to 36 months for STEM graduates
+
+Website:
+- https://www.ucdavis.edu/
+- https://cs.ucdavis.edu/
+- https://grad.ucdavis.edu/
+
+
+University of California, Santa Barbara (UC Santa Barbara)
+
+Rank: 32 (National Universities)
+Location: Santa Barbara, CA, United States
+Aliases: UC Santa Barbara, UCSB
+Number of Students: Approximately 26,000 (23,000 undergraduates, 3,000 graduate and professional students)
+Percentage of International Students: Approximately 6% (Graduate Students)
+
+Subjects Offered:
+- Engineering
+- Computer Science
+- Information Technology
+- Data Science
+- Artificial Intelligence
+- Cybersecurity
+
+Graduate Programs in Computer Science and IT:
+- Master of Science (M.S.) in Computer Science: 1.5 - 2 years, on-campus
+- Doctor of Philosophy (Ph.D.) in Computer Science: 4 - 5 years, on-campus
+
+Admissions:
+- Minimum GPA: 3.0 on a 4.0 scale
+- GRE: Not required
+- English Proficiency: TOEFL minimum score of 80 (Internet-based) or IELTS minimum of 7.0
+- Application Components: Academic transcripts, Letters of Recommendation, Statement of Purpose
+- Deadlines: December 15 for fall admission
+- Application Fee: Approximately $120 for international applicants
+- Acceptance Rate: Approximately 29% (overall university rate)
+
+Tuition:
+- Master's Programs: Approximately $30,266 per year for non-residents
+- Ph.D. Programs: Tuition is often covered by funding packages; additional fees may apply
+- Additional Fees: University fees, health insurance, and other incidental costs apply
+
+Funding:
+- Ph.D. Students: Typically fully funded, including tuition, fees, and a stipend for living expenses through fellowships, teaching assistantships, or research assistantships
+- Master's Students: Limited funding opportunities; students may seek scholarships or assistantships, which are competitive and not guaranteed
+
+Housing:
+- On-Campus: Limited availability; priority for first-year graduate students
+- Off-Campus: Numerous options available in the Santa Barbara area; costs vary depending on location and amenities
+
+Career Outcomes:
+- Employment Rate: Approximately 90% job placement within 6 months of graduation
+- Average Salary: Varies by program and industry; competitive within respective fields
+
+Visa:
+- Optional Practical Training (OPT): Up to 36 months for STEM graduates
+
+Website:
+- https://www.ucsb.edu/
+- https://www.cs.ucsb.edu/
+- https://www.graddiv.ucsb.edu/
+
+
+Washington University in St. Louis (WashU)
+
+Rank: 15 (National Universities)
+Location: St. Louis, MO, United States
+Aliases: WashU, WUSTL
+Number of Students: Approximately 15,000 (7,500 undergraduates, 7,500 graduate and professional students)
+Percentage of International Students: Approximately 22% (Graduate Students)
+
+Subjects Offered:
+- Engineering
+- Computer Science
+- Data Science
+- Cybersecurity
+
+Graduate Programs in Computer Science and Related Fields:
+- Master of Science (M.S.) in Computer Science: 1.5 - 2 years, on-campus
+- Master of Science (M.S.) in Computer Engineering: 1.5 - 2 years, on-campus
+- Master of Science (M.S.) in Cybersecurity Engineering: 1.5 - 2 years, on-campus
+- Master of Engineering (M.Eng.) in Computer Science & Engineering: 1 year, on-campus
+- Ph.D. in Computer Science or Computer Engineering: 5 - 6 years, on-campus
+
+Admissions:
+- Minimum GPA: No official minimum; strong academic performance expected
+- GRE: Not required
+- English Proficiency: TOEFL or IELTS scores required for non-native English speakers
+- Application Components: Academic transcripts, Letters of Recommendation, Statement of Purpose
+- Deadlines: Vary by program; typically around December 15 for fall admission
+- Application Fee: Approximately $75
+- Acceptance Rate: Varies by program; competitive admissions process
+
+Tuition:
+- Master's Programs: Approximately $28,875 per year
+- Ph.D. Programs: Tuition is covered by funding packages; additional fees may apply
+- Additional Fees: University fees, health insurance, and other incidental costs apply
+
+Funding:
+- Ph.D. Students: Typically fully funded, including tuition, fees, and a stipend for living expenses through fellowships, teaching assistantships, or research assistantships
+- Master's Students: Limited funding opportunities; students may seek scholarships or assistantships, which are competitive and not guaranteed
+
+Housing:
+- On-Campus: Limited availability for graduate students
+- Off-Campus: Numerous options available in the St. Louis area; costs vary depending on location and amenities
+
+Career Outcomes:
+- Employment Rate: High job placement within 6 months of graduation
+- Average Salary: Varies by program and industry; competitive within respective fields
+
+Visa:
+- Optional Practical Training (OPT): Up to 36 months for STEM graduates
+
+Website:
+- https://www.wustl.edu/
+- https://cse.wustl.edu/
+- https://graduateschool.wustl.edu/
+
+
+University of North Carolina at Chapel Hill (UNC-Chapel Hill)
+
+Rank: 29 (National Universities)
+Location: Chapel Hill, NC, United States
+Aliases: UNC-Chapel Hill, UNC
+Number of Students: Approximately 30,000 (20,000 undergraduates, 10,000 graduate and professional students)
+Percentage of International Students: Approximately 15% (Graduate Students)
+
+Subjects Offered:
+- Engineering
+- Computer Science
+- Information Technology
+- Data Science
+- Artificial Intelligence
+- Cybersecurity
+
+Graduate Programs in Computer Science and IT:
+- Master of Science (M.S.) in Computer Science: 1.5 - 2 years, on-campus
+- Doctor of Philosophy (Ph.D.) in Computer Science: 4 - 5 years, on-campus
+
+Admissions:
+- Minimum GPA: No official minimum; strong academic performance expected
+- GRE: Not required but recommended
+- English Proficiency: TOEFL or IELTS scores required for non-native English speakers
+- Application Components: Academic transcripts, Letters of Recommendation, Statement of Purpose
+- Deadlines: Typically around December 15 for fall admission
+- Application Fee: Approximately $95
+- Acceptance Rate: Fewer than 10% of applicants accepted to the program each year :contentReference[oaicite:0]{index=0}
+
+Tuition:
+- Master's Programs: Approximately $12,527 per year for in-state students; $30,819 per year for out-of-state students :contentReference[oaicite:1]{index=1}
+- Ph.D. Programs: Tuition is covered by funding packages; additional fees may apply :contentReference[oaicite:2]{index=2}
+- Additional Fees: University fees, health insurance, and other incidental costs apply
+
+Funding:
+- Ph.D. Students: Typically fully funded, including tuition, fees, and a stipend for living expenses through fellowships, teaching assistantships, or research assistantships :contentReference[oaicite:3]{index=3}
+- Master's Students: Limited funding opportunities; students may seek scholarships or assistantships, which are competitive and not guaranteed
+
+Housing:
+- On-Campus: Limited availability; priority for first-year graduate students
+- Off-Campus: Numerous options available in the Chapel Hill area; costs vary depending on location and amenities
+
+Career Outcomes:
+- Employment Rate: Approximately 90% job placement within 6 months of graduation
+- Average Salary: Varies by program and industry; competitive within respective fields
+
+Visa:
+- Optional Practical Training (OPT): Up to 36 months for STEM graduates
+
+Website:
+- https://www.unc.edu/
+- https://cs.unc.edu/
+- https://gradschool.unc.edu/
+
+

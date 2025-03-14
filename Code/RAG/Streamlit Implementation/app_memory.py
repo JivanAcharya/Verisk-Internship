@@ -53,7 +53,7 @@ else:
 
 # Retrieve relevant documents
 def retrieve_documents(query: str):
-    retrieved_docs = vector_store.similarity_search(query, k=3)
+    retrieved_docs = vector_store.similarity_search(query, k=2  )
     serialized_docs =  "\n\n".join(f"\nContent: {doc.page_content}" for doc in retrieved_docs)
     # print("\n Retrieved Docs are : ", retrieved_docs)
     return serialized_docs
