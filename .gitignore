@@ -5,7 +5,6 @@ __pycache__/
 
 # Virtual environment
 venv/
-/venv/
 env/
 
 # Editor and OS files
@@ -21,7 +20,7 @@ Thumbs.db
 Pipfile
 Pipfile.lock
 poetry.lock
-
+    
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
@@ -33,3 +32,9 @@ poetry.lock
 build/
 dist/
 *.egg-info/
+
+# ChromaDB directory
+chroma_db/
+
+
+.vscode/
