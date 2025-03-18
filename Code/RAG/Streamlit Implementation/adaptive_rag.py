@@ -52,7 +52,7 @@ structured_llm_router = llm.with_structured_output(RouteQuery)
 
 ## Prompt
 system = """You are an expert at routing a user question to a vectorstore or web search.
-The vectorstore contains documents related to universities in United States.
+The vectorstore contains only the documents related to universities in United States.
 Use the vectorstore for questions on these topics. Otherwise, use web-search."""
 
 route_prompt = ChatPromptTemplate.from_messages(
@@ -337,7 +337,7 @@ def web_search(state):
 
 
 ### Edges ###
-from pprint import pprint
+# from print import print
 
 
 def route_question(state):
@@ -425,7 +425,7 @@ def grade_generation_v_documents_and_question(state):
             print("---DECISION: GENERATION DOES NOT ADDRESS QUESTION---")
             return "not useful"
     else:
-        pprint("---DECISION: GENERATION IS NOT GROUNDED IN DOCUMENTS, RE-TRY---")
+        print("---DECISION: GENERATION IS NOT GROUNDED IN DOCUMENTS, RE-TRY---")
         return "not supported"
     
 
@@ -480,13 +480,13 @@ app = workflow.compile()
 # for output in app.stream(inputs):
 #     for key, value in output.items():
 #         # Node
-#         pprint(f"Node '{key}':")
+#         print(f"Node '{key}':")
 #         # Optional: print full state at each node
-#         # pprint.pprint(value["keys"], indent=2, width=80, depth=None)
-#     pprint("\n---\n")
+#         # print.print(value["keys"], indent=2, width=80, depth=None)
+#     print("\n---\n")
 
 # # Final generation
-# pprint(value["generation"])
+# print(value["generation"])
 
 
 
@@ -538,7 +538,7 @@ def store_chat_history(session_id, user_message, bot_response):
             print("Chat history stored")
 
 
-chat_history = get_chat_history("client_1")
+chat_history = get_chat_history("client_2")
     # print("\n Chat History is : ", chat_history)
 chat_context = "\n".join(f"User: {chat['user_message']}\nUniBro: {chat['bot_response']}" for chat in chat_history)
 
@@ -551,7 +551,7 @@ query_template = ChatPromptTemplate.from_messages([
     ("human", "{input}")
 ])
 
-user_input = input("Enter your question: ")
+user_input = "What courses are offered at Harvard University?"
 query = query_template.format(input= user_input)
 response = llm.invoke(query)
 new_query = response.content
@@ -562,5 +562,9 @@ inputs = {
 
 resp = app.invoke(inputs)
 user_message, bot_response = resp['question'], resp["generation"]
-store_chat_history("client_1", user_message, bot_response)
-pprint(resp['question'], resp["generation"])
+store_chat_history("client_2", user_message, bot_response)
+print(resp['question'], resp["generation"])
+
+from IPython.display import Image, display
+
+display(Image(app.get_graph().draw_mermaid_png()))
