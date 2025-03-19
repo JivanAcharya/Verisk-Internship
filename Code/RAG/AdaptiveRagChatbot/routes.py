@@ -48,3 +48,27 @@ professor_search_prompt = ChatPromptTemplate.from_messages(
 )
 
 professor_search_router = professor_search_prompt | llm.with_structured_output(ProfessorSearchRoutes)
+
+
+
+class JsonResultRoutes(BaseModel):
+    """Route to web search or format search results based on json data"""
+
+    datasource: Literal["web_search","format_search_results"] = Field(
+        ..., description="Given the document retrieved from json data, choose to route it to web search or format search results"
+    )
+
+#prompt
+system = """You are an expert at routing a user question to web search or format search result route.
+Routing should be done by checking if the data in document is able to answer users question or not.
+If the document give has data like none or not found and is unable to answer the users question, use web search to find the relevant data.
+Otherwise, use the format search results to extract the relevant information"""
+
+json_route_prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system",system),
+        ("human","User question is :: {question}, retrieved docs is :: {documents}")
+    ]
+)
+
+json_results_router = json_route_prompt | llm.with_structured_output(JsonResultRoutes)

@@ -24,13 +24,12 @@ class ExtractKeywords(BaseModel):
 structured_extract_keywords = llm.with_structured_output(ExtractKeywords)
 
 #Grader Prompt
-system = """You are an expert at extracting information from the given query. \n
-    You are to extract the following information if available: \n
-    - Professor Name \n
-    - University 
-    Make sure that the professors name is in proper casing and give the full university name, not in the abbreviated form\n
-    If univeristy location is mentioned then return as this form :: <University Name> - <Location> \n For eg: University of California - Santa Cruz
-    """
+system = system = """You are an expert in extracting structured information from text. \n
+Extract the following details strictly as defined: \n
+- **Professor Name**: Extract the full name with proper casing. Do not abbreviate. \n
+- **University**: Extract the full university name, avoiding abbreviations. If a location is mentioned, format it as "<University Name> - <Location>". \n
+Return only the extracted values without additional text or explanations."""
+
 
 extract_prompt = ChatPromptTemplate.from_messages(
     [
@@ -54,10 +53,10 @@ class ProfessorSearchResults(BaseModel):
     email: str
     phone: str
     office: str
-    website: str
     research_interests: str
     bio: str
     publications: str
+    website:str
 structured_professor_search = llm.with_structured_output(ProfessorSearchResults)
 
 #Grader Prompt 
@@ -69,7 +68,6 @@ system = """You are an expert at extracting information form the given extracted
     - Email \n
     - Phone \n
     - Office \n
-    - Website \n
     - Research Interests \n
     - Bio \n
     - Publications \n
@@ -135,11 +133,17 @@ def professor_search_json(question: str):
         print("\n WEBSITE : ",professors_website)
         if professors_website:
             data = scrape_website_content(professors_website)
+            print("\n SCRAPED DATA FROM WEBSITE : ",data)
+            print(type(data))
             formatted_data = professor_data_extractor.invoke({"document": data})
-            print(formatted_data)
-            return formatted_data
+            formatted_data_dict = formatted_data.model_dump()
+            formatted_data_dict["website"] = professors_website  
+            
+            final_result = ProfessorSearchResults(**formatted_data_dict)
+            print(final_result)
+            return final_result
             
     
 
     else:
-        return "\nProfessor name or university not found in the query"
+        return "not found"

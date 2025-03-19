@@ -6,7 +6,7 @@ from llm_config import llm
 from graders import retrieval_grader, hallucination_grader,answer_grader
 from query_rewriter import question_rewriter
 from professor_web_search import web_search_tool, professor_search_json
-from routes import question_router,professor_search_router
+from routes import question_router,professor_search_router,json_results_router
 
 
 class GraphState(TypedDict):
@@ -167,6 +167,7 @@ def professor_search_from_json(state):
     
     #json search
     json_results = professor_search_json(question)
+    
     return{"documents":json_results, "question":question}
 
 def format_search_results(state):
@@ -183,7 +184,7 @@ def format_search_results(state):
     documents = state['documents']
     print("\n Format Search Results")
     resp = llm.invoke(f"""For the question by the user :: {question} \n
-                        The results of web search are {documents}. \n Now give the answer only addressing the user 3question from the retrieved web search document
+                        The results of web search are {documents}. \n Now give the answer only addressing the user question from the retrieved web search document
                         \n NO PREAMBLE AND EXTRA TEXTS""")
     return {"question":question, "generation":resp.content}
 
@@ -248,6 +249,17 @@ def route_professor_query(state):
     else:
         return "web_search"
 
+def route_json_results(state):
+    print("\n Route according to JSON Results")
+    question = state["question"]
+    documents = state["documents"]
+    source = json_results_router.invoke({"question":question,"documents": documents})
+    print("\n SOURCE:"+source.datasource)
+    if source.datasource == "web_search":
+        return "not found"
+    else: 
+        return "found data"
+
 def decide_to_generate(state):
     """
     Determines whether to generate an answer, or re-generate a question.
@@ -305,6 +317,7 @@ def grade_generations(state):
             return "useful"
         else:
             print("\n Decision: Generation does not addreess question")
+            return "not useful"
     else:
         print("\n Generation is not grounded in the documents, Retry...")
-        return "not supported"
+        return "hallucination"

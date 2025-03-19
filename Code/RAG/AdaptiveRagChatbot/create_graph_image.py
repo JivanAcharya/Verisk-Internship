@@ -11,7 +11,7 @@ args = parser.parse_args()
 image = Image(app.get_graph().draw_mermaid_png())
 
 # Save image with the provided filename
-with open(args.filename, "wb") as f:
+with open(f"graph_images/{args.filename}", "wb") as f:
     f.write(image.data)
 
 print(f"Graph image saved as {args.filename}")

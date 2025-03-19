@@ -1,5 +1,5 @@
 from langgraph.graph import START, END, StateGraph
-from graph_setup import GraphState, professor_search,web_search,professor_search_from_json,format_search_results,general_query, retrieve,generate,decide_to_generate,route_question,route_professor_query, grade_documents,grade_generations,transform_query
+from graph_setup import GraphState, professor_search,web_search,professor_search_from_json,format_search_results,general_query, retrieve,generate,decide_to_generate,route_question,route_professor_query,route_json_results, grade_documents,grade_generations,transform_query
 
 workflow = StateGraph(GraphState)
 
@@ -52,14 +52,21 @@ workflow.add_conditional_edges(
     "generate",
     grade_generations,
     {
-        "not supported": "generate",
+        "hallucination": "generate",
         "useful": END,
         "not useful": "transform_query",
     }
 )
-workflow.add_edge("professor_search_from_json", "format_search_results")
+workflow.add_conditional_edges(
+    "professor_search_from_json",
+     route_json_results,
+     {
+         "not found" : "web_search",
+         "found data": "format_search_results"
+    }
+)
 workflow.add_edge("web_search", "format_search_results")
 workflow.add_edge("format_search_results", END)
 workflow.add_edge("general_query", END)
 
-app = workflow.compile()
+chatbot = workflow.compile()
