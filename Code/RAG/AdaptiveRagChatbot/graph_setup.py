@@ -5,8 +5,10 @@ from retriever_setup import retriever
 from llm_config import llm
 from graders import retrieval_grader, hallucination_grader,answer_grader
 from query_rewriter import question_rewriter
-from professor_web_search import web_search_tool
-from routes import question_router
+from professor_web_search import web_search_tool, professor_search_json
+from routes import question_router,professor_search_router
+
+
 class GraphState(TypedDict):
     """
     Represents the state of the graph
@@ -58,6 +60,7 @@ from langchain_core.output_parsers import StrOutputParser
 prompt = hub.pull("rlm/rag-prompt")
 
 rag_chain = prompt | llm | StrOutputParser()
+
 def generate(state):
     """
     Generate answer
@@ -134,6 +137,10 @@ def professor_search(state):
     Returns:
         state (dict): Updates documents key with appended web results
     """
+    return {"question": state["question"]}
+
+
+def web_search(state):
     print("\n Professor Web Search")
     question = state["question"]
 
@@ -144,6 +151,41 @@ def professor_search(state):
     web_results = Document(page_content = web_results)
 
     return{"documents":web_results, "question":question}
+
+def professor_search_from_json(state):
+    """
+    Search for professors in the json data with re-phrased question.
+    
+    Args:
+        state (dict): The current graph state
+        
+    Returns:
+        state (dict): Updates documents key with appended json results
+    """
+    print("\n Professor Search from JSON")
+    question = state["question"]
+    
+    #json search
+    json_results = professor_search_json(question)
+    return{"documents":json_results, "question":question}
+
+def format_search_results(state):
+    """
+    Format the search results for display to the user
+    
+    Args:
+        state (dict): The current graph state
+    
+    Returns:
+        state (dict): Update generation with the formatted search results
+    """
+    question = state['question']
+    documents = state['documents']
+    print("\n Format Search Results")
+    resp = llm.invoke(f"""For the question by the user :: {question} \n
+                        The results of web search are {documents}. \n Now give the answer only addressing the user 3question from the retrieved web search document
+                        \n NO PREAMBLE AND EXTRA TEXTS""")
+    return {"question":question, "generation":resp.content}
 
 def general_query(state):
     """
@@ -185,6 +227,26 @@ def route_question(state):
         return "professor_search"
     else:
         return "general_query"
+    
+## routes for professor search
+def route_professor_query(state):
+    """
+    Route question to json_data or web_search for professor query .
+
+    Args:
+        state (dict): The current graph state
+
+    Returns:
+        str: Next node to call
+    """
+    print("\n Route Professor Query")
+    question = state["question"]
+    source = professor_search_router.invoke({"question": question})
+    print("\n SOURCE:"+source.datasource)
+    if source.datasource == "json_data":
+        return "json_data"
+    else:
+        return "web_search"
 
 def decide_to_generate(state):
     """
