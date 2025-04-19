@@ -1,4 +1,5 @@
 from pydantic import BaseModel, EmailStr, Field
+from typing import Optional
 
 class QuerySchema(BaseModel):
     query:str
@@ -13,14 +14,21 @@ class UserLoginSchema(BaseModel):
     email : EmailStr
     password : str
 
-class UserRegisterSchema(BaseModel):
+class UserBaseSchema(BaseModel):
     username: str
     email: EmailStr
+
+class UserRegisterSchema(UserBaseSchema):
     password: str = Field(..., min_length=8, description="password must be at least 8 characters long")
-    confirm_password: str
+    # confirm_password: str
 
 class Message(BaseModel):
     message : str
 
 class Token(BaseModel):
-    sub:str | None = None
+    access_token:str | None = None
+    token_type: str = "bearer"
+
+class TokenPayload(BaseModel):
+    user_id: int
+    exp: Optional[int] = None

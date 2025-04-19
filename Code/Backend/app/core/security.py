@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta, timezone
-from typing import Any
+from typing import Any,Dict
 
 import jwt
 from passlib.context import CryptContext
@@ -8,7 +8,7 @@ from app.core.config import settings
  
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-def create_access_token(data:dict):
+def create_access_token(data:Dict[str, Any]) -> str:
     to_encode= data.copy()
     expires = datetime.now(timezone.utc) + timedelta(minutes = settings.access_token_expire_time)
     to_encode.update({"exp": expires})

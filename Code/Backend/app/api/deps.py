@@ -9,8 +9,8 @@ from pydantic import ValidationError
 from app.db.session import engine
 from sqlalchemy.orm import sessionmaker, Session
 
-from app.models import TokenPayload, User
-from app.schemas import Token
+from app.models import  User
+from app.schemas import Token,TokenPayload
 from app.core.config import settings
 
 reusable_oauth2  = OAuth2PasswordBearer(
@@ -42,11 +42,11 @@ def get_current_user(token:TokenDep,session:SessionDep) -> User:
             status_code = status.HTTP_403_FORBIDDEN,
             detail="Could not validate credentials",
         )
+        
     # get takes the second parameter as the primary key
-    user = session.get(User, token_data.user_id)
+    # user = session.get(User, token_data.user_id)
 
-    #other approach
-    # user = session.query(User).filter(User.user_id== token_data.user_id).first()
+    user = session.query(User).filter(User.user_id== token_data.user_id).first()
 
     if not user:
         raise HTTPException(

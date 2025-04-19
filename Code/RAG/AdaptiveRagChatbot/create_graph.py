@@ -1,5 +1,18 @@
 from langgraph.graph import START, END, StateGraph
-from graph_setup import GraphState, professor_search,web_search,professor_search_from_json,format_search_results,general_query, retrieve,generate,decide_to_generate,route_question,route_professor_query,route_json_results, grade_documents,grade_generations,transform_query
+from graph_setup import (GraphState,
+                         professor_search,
+                         web_search,
+                         professor_search_from_json,
+                         format_search_results,
+                         general_query, 
+                         retrieve,generate,
+                         decide_to_generate,
+                         route_question,
+                         route_professor_query,
+                         route_json_results, 
+                         grade_documents,
+                         grade_generations,
+                         transform_query)
 
 workflow = StateGraph(GraphState)
 
@@ -34,7 +47,7 @@ workflow.add_conditional_edges(
         "json_data": "professor_search_from_json",
         "web_search": "web_search",
     }
-    )
+)
 
 
 workflow.add_edge("retrieve","grade_documents")
