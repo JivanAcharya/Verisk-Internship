@@ -10,3 +10,4 @@ pydantic[email]
 passlib
 python-multipart
 emails
+python-jose

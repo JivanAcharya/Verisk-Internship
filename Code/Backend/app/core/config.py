@@ -10,6 +10,7 @@ class Settings:
         self.hashing_algorithm = self.env_vars.get("HASHING_ALGORITHM")
         self.secret_key = self.env_vars.get("SECRET_KEY")
         self.access_token_expire_time: int  = 60
+        self.refresh_token_expire_time: int = 60 * 24 * 7
 
         self.SMTP_TLS: bool = self.env_vars.get("SMTP_TLS", "False").lower() == "true"
         self.SMTP_SSL: bool = self.env_vars.get("SMTP_SSL", "False").lower() == "false"

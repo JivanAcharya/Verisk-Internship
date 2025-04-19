@@ -3,9 +3,9 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from app.models import User
 from app.api.deps import get_db, TokenDep
-from app.schemas import UserRegisterSchema,UserLoginSchema, Token
+from app.schemas import UserRegisterSchema,UserLoginSchema, Token, RefreshTokenRequest
 from app.api.routes import crud
-from app.core.security import create_access_token
+from app.core.security import create_access_token, create_refresh_token, token_expired, decode_token
 from app.utils import generate_new_account_email, send_email
 
 router = APIRouter(tags=["auth"],prefix ="/api/v1/auth")
@@ -62,5 +62,18 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session=  Depend
         )
     
     access_token = create_access_token(data = {"sub":user.email})
-    return Token(access_token=access_token)
+    refresh_token = create_refresh_token(data = {"sub":user.email})
+    return Token(access_token=access_token, refresh_token = refresh_token, token_type = "bearer")
 
+@router.post("/refresh-token",status_code=status.HTTP_200_OK)
+async def refresh_access_token(refresh_token_request: RefreshTokenRequest,db:Session= Depends(get_db), ) -> Token:
+    token = refresh_token_request.refresh_token
+
+    if token_expired(token):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Refresh token is expired.")
+
+    user = decode_token(token)
+    access_token = create_access_token(data = {"sub":user['sub']})
+    refresh_token = create_refresh_token(data = {"sub":user['sub']})
+
+    return Token(access_token=access_token, refresh_token = refresh_token, token_type = "bearer")

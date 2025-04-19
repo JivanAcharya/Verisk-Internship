@@ -27,8 +27,12 @@ class Message(BaseModel):
 
 class Token(BaseModel):
     access_token:str | None = None
+    refresh_token:str | None = None
     token_type: str = "bearer"
 
 class TokenPayload(BaseModel):
     user_id: int
     exp: Optional[int] = None
+
+class RefreshTokenRequest(BaseModel):
+    refresh_token: str

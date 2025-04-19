@@ -31,7 +31,7 @@ def get_db() -> Generator[Session, None, None]:
 SessionDep = Annotated[Session, Depends(get_db)]
 TokenDep = Annotated[str, Depends(reusable_oauth2)]
 
-def get_current_user(token:TokenDep,session:SessionDep) -> User:
+def get_current_user(token:TokenDep,db:SessionDep) -> User:
     try:
         payload = jwt.decode(
             token, settings.secret_key, algorithms=[settings.hashing_algorithm]
@@ -46,7 +46,7 @@ def get_current_user(token:TokenDep,session:SessionDep) -> User:
     # get takes the second parameter as the primary key
     # user = session.get(User, token_data.user_id)
 
-    user = session.query(User).filter(User.user_id== token_data.user_id).first()
+    user = db.query(User).filter(User.user_id== token_data.user_id).first()
 
     if not user:
         raise HTTPException(
