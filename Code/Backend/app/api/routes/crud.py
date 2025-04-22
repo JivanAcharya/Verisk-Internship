@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.core.security import get_password_hash, verify_password
-from app.models import User
+from app.models import User,ChatHistory
 
 from app.schemas import UserRegisterSchema
 
@@ -44,9 +44,8 @@ def authenticate(*, db: Session, email:str, password:str) -> User | None:
     user = get_user_by_email(db=db,email=email)
     print("Inside authenticate :: outside", user.email, user.password)
     if not user:
-        # print("Inside authenticate :: user does not exist ", user)
         return None
     if not verify_password(password, user.password):
-        # print("Inside authenticate :: password error ", password, )
         return None
     return user
+

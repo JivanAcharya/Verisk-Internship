@@ -1,10 +1,11 @@
 from collections.abc import Generator
 from typing import Annotated
 
-import jwt
+from jose import jwt,JWTError
+# import jwt
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
-from jwt.exceptions import InvalidTokenError
+# from jwt import InvalidTokenError
 from pydantic import ValidationError
 from app.db.session import engine
 from sqlalchemy.orm import sessionmaker, Session
@@ -12,6 +13,7 @@ from sqlalchemy.orm import sessionmaker, Session
 from app.models import  User
 from app.schemas import Token,TokenPayload
 from app.core.config import settings
+from app.core.security import decode_token, token_expired
 
 reusable_oauth2  = OAuth2PasswordBearer(
     tokenUrl = "api/v1/login/access-token"
@@ -33,11 +35,13 @@ TokenDep = Annotated[str, Depends(reusable_oauth2)]
 
 def get_current_user(token:TokenDep,db:SessionDep) -> User:
     try:
-        payload = jwt.decode(
-            token, settings.secret_key, algorithms=[settings.hashing_algorithm]
-        )
-        token_data = TokenPayload(**payload)
-    except(InvalidTokenError,ValidationError):
+        print("\n TOKEN IN QUERY: ",token)
+        if token_expired(token):
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Refresh token is expired.")
+
+        token_data = decode_token(token)
+        # print(token_data)
+    except(JWTError,ValidationError):
         raise HTTPException(
             status_code = status.HTTP_403_FORBIDDEN,
             detail="Could not validate credentials",
@@ -46,7 +50,8 @@ def get_current_user(token:TokenDep,db:SessionDep) -> User:
     # get takes the second parameter as the primary key
     # user = session.get(User, token_data.user_id)
 
-    user = db.query(User).filter(User.user_id== token_data.user_id).first()
+    user = db.query(User).filter(User.email== token_data['sub']).first()
+    # print("\n Inside get_current_user , User info :: ",user)
 
     if not user:
         raise HTTPException(

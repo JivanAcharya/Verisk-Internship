@@ -23,7 +23,7 @@ if os.path.exists(CHROMA_PERSIST_DIR):
     vector_store = Chroma(persist_directory=CHROMA_PERSIST_DIR, embedding_function=embeddings)
     print("\nChroma db loaded from memory")
 else:
-    loader = TextLoader("top_uni_detailed.txt")
+    loader = TextLoader("AdaptiveRagChatbot/top_uni_detailed.txt")
     docs = loader.load()
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=300)
     all_splits = text_splitter.split_documents(docs)

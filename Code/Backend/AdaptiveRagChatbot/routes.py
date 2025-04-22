@@ -1,7 +1,7 @@
 from typing import Literal
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
-from llm_config import llm
+from .llm_config import llm
 #data model to return the route
 class RouteQuery(BaseModel):
     """Route a user query to the most relevant datasource"""

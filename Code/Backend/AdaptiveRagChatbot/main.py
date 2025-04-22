@@ -1,4 +1,4 @@
-from create_graph import chatbot
+from .create_graph import chatbot
 
 # Run
 user_input = input("Enter a question: ")

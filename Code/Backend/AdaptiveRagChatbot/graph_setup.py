@@ -1,12 +1,12 @@
 from typing import List
 from typing_extensions import TypedDict
 
-from retriever_setup import retriever 
-from llm_config import llm
-from graders import retrieval_grader, hallucination_grader,answer_grader
-from query_rewriter import question_rewriter
-from professor_web_search import web_search_tool, professor_search_json
-from routes import question_router,professor_search_router,json_results_router
+from .retriever_setup import retriever 
+from .llm_config import llm
+from .graders import retrieval_grader, hallucination_grader,answer_grader
+from .query_rewriter import question_rewriter
+from .professor_web_search import web_search_tool, professor_search_json
+from .routes import question_router,professor_search_router,json_results_router
 
 
 class GraphState(TypedDict):

@@ -7,7 +7,7 @@ import json
 from bs4 import BeautifulSoup
 import requests
 
-from llm_config import llm
+from .llm_config import llm
 
 
 ## Initialize web search tool for general searches

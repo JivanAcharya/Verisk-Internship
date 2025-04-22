@@ -9,12 +9,11 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     password = Column(String, nullable=False)
 
-    # Removed items relationship since Item model doesn't exist
     # Added reverse relationship for GeneralChatHistory
-    general_chat_history = relationship("GeneralChatHistory", back_populates="user")
+    general_chat_history = relationship("ChatHistory", back_populates="user")
 
 
-class GeneralChatHistory(Base):
+class ChatHistory(Base):
     __tablename__ = "general_chat_history"
     session_id = Column(Integer, primary_key=True, autoincrement=True, index=True)
     user_id = Column(Integer, ForeignKey("users.user_id"))

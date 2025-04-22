@@ -1,5 +1,5 @@
 from langgraph.graph import START, END, StateGraph
-from graph_setup import (GraphState,
+from .graph_setup import (GraphState,
                          professor_search,
                          web_search,
                          professor_search_from_json,

@@ -1,7 +1,7 @@
 from typing import Literal
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
-from llm_config import llm
+from .llm_config import llm
 
 ##Retrieval Grader
 class GradeDocument(BaseModel):
