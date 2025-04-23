@@ -16,7 +16,7 @@ embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-b
 # retriever = vector_store.as_retriever()
 # print("\nNew vector store created")
 
-CHROMA_PERSIST_DIR = "chroma_db"
+CHROMA_PERSIST_DIR = "AdaptiveRagChatbot/chroma_db"
 
 # Load or create vector store
 if os.path.exists(CHROMA_PERSIST_DIR):

@@ -42,7 +42,6 @@ def get_user_by_email(*,db: Session, email: str) -> User | None:
 
 def authenticate(*, db: Session, email:str, password:str) -> User | None:
     user = get_user_by_email(db=db,email=email)
-    print("Inside authenticate :: outside", user.email, user.password)
     if not user:
         return None
     if not verify_password(password, user.password):

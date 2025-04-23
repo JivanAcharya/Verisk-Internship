@@ -83,7 +83,7 @@ extract_prompt = ChatPromptTemplate.from_messages(
 professor_data_extractor = extract_prompt | structured_professor_search
 
 def get_professors_website(professor_name: str, university: str):
-     with open("university_professors.json", "r") as f:
+     with open("AdaptiveRagChatbot/university_professors.json", "r") as f:
         data = json.load(f)
         
         # if university present

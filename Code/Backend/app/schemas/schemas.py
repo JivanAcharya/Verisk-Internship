@@ -5,11 +5,6 @@ class QuerySchema(BaseModel):
     query:str
     thread_id: str = "default_session"
 
-class ChatHistorySchema(BaseModel):
-    session_id : str
-    user_message : str
-    bot_response : str
-
 class UserLoginSchema(BaseModel):
     email : EmailStr
     password : str
@@ -40,5 +35,8 @@ class RefreshTokenRequest(BaseModel):
 
 class QueryRequestSchema(BaseModel):
     query: str
-
+    session_id : int
+# class ChatHistorySchema(BaseModel):
+#     session_id: int
+#     limit: int = None
 

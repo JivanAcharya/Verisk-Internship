@@ -8,6 +8,8 @@ from pathlib import Path
 import emails
 from jinja2 import Template
 from app.core.config import settings
+from AdaptiveRagChatbot.llm_config import llm
+from langchain_core.prompts import ChatPromptTemplate
 
 @dataclass
 class EmailData:
@@ -67,3 +69,31 @@ def send_email(
 
     print("\n ********  EMAIL SENT *********")
     # logger.info(f"send email result: {response}")
+
+    
+def rewrite_query(query: str, chat_context: str) -> str:
+        """
+        Function to rewrite the query using a large language model.
+        
+        Args:
+            query (str): The original query to be rewritten.
+        
+        Returns:
+            str: The rewritten query.
+        """
+        if chat_context is None:
+            return query
+        else:
+            query_template = ChatPromptTemplate.from_messages([
+                ("system",
+                "You are query rewriting specialist for University Question and Answering application."
+                " From the input of previous chat histroy and the human input, generate a short concise query for the chat application."),
+                ("system", "STRICTLY RESPOND WITH THE FINAL QUERY ONLY, NO ADDITIONAL TEXT AND PREAMBLE."),
+                ("system", f"Previous Chat History (for context, if relevant):\n{chat_context}"),
+                ("human", "{input}")
+            ])
+            
+            query = query_template.format(input= query)
+            response = llm.invoke(query)
+            new_query = response.content
+            return new_query
