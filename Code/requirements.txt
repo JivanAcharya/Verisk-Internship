@@ -21,3 +21,6 @@ streamlit-chat
 uvicorn
 fastapi
 pypdf
+pytesseract 
+pillow
+pdf2image

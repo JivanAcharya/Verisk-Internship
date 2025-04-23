@@ -1,0 +1,21 @@
+<mjml>
+  <mj-body background-color="#f4f4f4">
+    <mj-section background-color="#ffffff" padding="40px 20px">
+      <mj-column vertical-align="middle" width="100%">
+        <mj-text align="center" font-size="22px" color="#333" font-family="Arial, Helvetica, sans-serif" padding="20px">
+          🎉 Welcome to {{ project_name }}!
+        </mj-text>
+        <mj-text align="center" font-size="16px" color="#555" font-family="Arial, Helvetica, sans-serif" padding="10px 25px">
+          Hi {{ username }}, we're excited to have you join our community.
+        </mj-text>
+        <mj-text align="center" font-size="16px" color="#555" font-family="Arial, Helvetica, sans-serif" padding="10px 25px">
+          Explore conversations, get your university queries answered, and make the most of your journey with us.
+        </mj-text>
+        <mj-button align="center" background-color="#3f51b5" color="#ffffff" font-size="16px" border-radius="6px" padding="20px" href="{{ link }}">
+          Get Started
+        </mj-button>
+        <mj-divider border-color="#e0e0e0" border-width="1px" padding="20px 0"></mj-divider>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

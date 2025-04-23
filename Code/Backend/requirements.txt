@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+python-dotenv
+pydantic
+SQLAlchemy
+psycopg2-binary
+jwt
+PyJWT
+pydantic[email]
+passlib
+python-multipart
+emails
+python-jose
