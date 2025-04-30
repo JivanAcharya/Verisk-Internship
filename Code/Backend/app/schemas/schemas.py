@@ -1,9 +1,6 @@
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
 
-class QuerySchema(BaseModel):
-    query:str
-    thread_id: str = "default_session"
 
 class UserLoginSchema(BaseModel):
     email : EmailStr
@@ -35,7 +32,7 @@ class RefreshTokenRequest(BaseModel):
 
 class QueryRequestSchema(BaseModel):
     query: str
-    session_id : int
+
 # class ChatHistorySchema(BaseModel):
 #     session_id: int
 #     limit: int = None

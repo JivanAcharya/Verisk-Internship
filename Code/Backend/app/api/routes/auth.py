@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from app.models import User
-from app.api.deps import get_db
+from app.api.deps import get_db, get_current_user
 from app.schemas import UserRegisterSchema,UserLoginSchema, Token, RefreshTokenRequest
 from app.api.routes import crud
 from app.core.security import create_access_token, create_refresh_token, token_expired, decode_token
@@ -77,3 +77,11 @@ async def refresh_access_token(refresh_token_request: RefreshTokenRequest,db:Ses
     refresh_token = create_refresh_token(data = {"sub":user['sub']})
 
     return Token(access_token=access_token, refresh_token = refresh_token, token_type = "bearer")
+
+
+@router.get("/users/me", status_code=status.HTTP_200_OK)
+def read_users_me(current_user: User = Depends(get_current_user),db: Session = Depends(get_db)):
+    return {
+        "username": current_user.username,
+        "email": current_user.email,
+    }
