@@ -124,9 +124,9 @@ def transform_query(state):
     documents = state["documents"]
 
     #rewrite query
-    new_question = question_rewriter.invoke({"question": question})
-    print("\nNew transformed query in adaptive rag", new_question)
-    return {"documents": documents, "question": new_question}
+    res = question_rewriter.invoke({"question": question})
+    print("\nNew transformed query in adaptive rag", res.query)
+    return {"documents": documents, "question": res.query}
 
 def professor_search(state):
     """
@@ -142,7 +142,7 @@ def professor_search(state):
 
 
 def web_search(state):
-    print("\n Professor Web Search")
+    print("\nWeb Search")
     question = state["question"]
 
     #web search

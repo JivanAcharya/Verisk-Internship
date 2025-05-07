@@ -18,9 +18,9 @@ const Login = () => {
     const login = useAuthStore((state) => state.login);
 
     const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        try {
-          await login(email, password);
+      e.preventDefault();
+      try {
+        await login(email, password);
           navigate('/chat');
           toast.success('Login successful!');
         } catch (error) {

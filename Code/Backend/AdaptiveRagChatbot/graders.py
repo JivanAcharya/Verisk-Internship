@@ -53,13 +53,13 @@ hallucination_grader = hallucination_prompt | structured_llm_hallucination_grade
 class GradeAnswer(BaseModel):
     """Binary score to assess if answer addresses the question."""
     binary_score:str = Field(
-        description="Answer addresses the question, 'yes' or 'no'"
+        description="LLM answer addresses the user question, 'yes' or 'no'"
     )
 
 structured_llm_answer_grader = llm.with_structured_output(GradeAnswer)
 # Prompt
-system = """You are a grader assessing whether an answer addresses / resolves a question \n 
-     Give a binary score 'yes' or 'no'. Yes' means that the answer resolves the question."""
+system = """You are a grader assessing whether an answer addresses a question \n 
+     Give a binary score 'yes' or 'no'. Yes' means that the answer addresses the question."""
 answer_prompt = ChatPromptTemplate.from_messages(
     [
         ("system", system),

@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Chat from './pages/Chat';
+import SOP from './pages/SOP';
 import ProtectedRoute from './components/ProtectedRoute';
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/chat" element={<Chat />} />
+            <Route path="/sop" element={<SOP />} />
             <Route path="*" element={<Navigate to="/chat" replace />} />
           </Route>
         </Routes>

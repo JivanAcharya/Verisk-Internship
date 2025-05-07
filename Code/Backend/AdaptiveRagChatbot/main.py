@@ -1,7 +1,7 @@
 from .create_graph import chatbot
 
 # Run
-user_input = input("Enter a question: ")
+user_input = input("What are the scholarships available in MIT ?")
 inputs = {
     "question": user_input
 }

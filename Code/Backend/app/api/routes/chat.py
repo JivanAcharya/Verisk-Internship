@@ -1,6 +1,6 @@
 from AdaptiveRagChatbot.create_graph import chatbot
 from pydantic import BaseModel
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, status
 from sqlalchemy.orm import Session
 from app.api.deps import get_db,TokenDep,get_current_user
 from app.models import User, ChatHistory, ChatSession  # assuming your model file is models.py
@@ -11,7 +11,7 @@ from app.utils import rewrite_query
 router = APIRouter(tags=["chatbot"],prefix ="/api/v1")
  
 
-@router.post("/sessions", status_code=201)
+@router.post("/sessions", status_code=status.HTTP_201_CREATED)
 async def create_session(request: QueryRequestSchema,
                     db: Session= Depends(get_db),                    
                     current_user : User = Depends(get_current_user)):
@@ -30,7 +30,7 @@ async def create_session(request: QueryRequestSchema,
     return {"session_id": new_session.session_id, }
 
 
-@router.post("/sessions/{session_id}/messages")
+@router.post("/sessions/{session_id}/messages" ,status_code=status.HTTP_200_OK)
 async def answer_query(session_id :str,
                        request: QueryRequestSchema,
                        db: Session = Depends(get_db),
@@ -42,7 +42,10 @@ async def answer_query(session_id :str,
         session = db.query(ChatSession).filter_by(session_id = session_id, user_id = current_user.user_id).first()
 
         if not session:
-            raise HTTPException(status_code=404, detail="Session not found")
+            raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Session not found or not authorized"
+        )
 
         # Create the user message object
         user_message = ChatHistory(session_id = session_id,
@@ -70,7 +73,7 @@ async def answer_query(session_id :str,
         #joining to a single string to pass the context
         chat_context = "\n".join(f"{msg.role.capitalize()}: {msg.content}" for msg in reversed(chat_history))
 
-
+        print("\nChat context is :: ", chat_context)
         #rewriting the query basedo on chat history context and current query
         rewritten_query = rewrite_query(query = request.query, chat_context = chat_context)
         print("\n Rewritten Query: ", rewritten_query)
@@ -104,7 +107,7 @@ async def answer_query(session_id :str,
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@router.get("/sessions/{session_id}")
+@router.get("/sessions/{session_id}", status_code=status.HTTP_200_OK)
 async def get_chat_history(session_id : str,
                             db: Session= Depends(get_db),
                            current_user: User = Depends(get_current_user),
@@ -115,7 +118,10 @@ async def get_chat_history(session_id : str,
     # Verify session belongs to the user (security check)
     session = db.query(ChatSession).filter_by(session_id=session_id, user_id=current_user.user_id).first()
     if not session:
-        return [] 
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Session not found or not authorized"
+        )
 
     # Fetch chat messages in the session
     
@@ -134,7 +140,7 @@ async def get_chat_history(session_id : str,
     return {"session_id": session_id, "messages": formatted_messages}
 
 
-@router.get("/sessions", status_code=200)
+@router.get("/sessions", status_code=status.HTTP_200_OK)
 async def get_all_sessions(db: Session = Depends(get_db), current_user = Depends(get_current_user)):
     """
     Fetch all chat sessions for the user.
@@ -147,6 +153,38 @@ async def get_all_sessions(db: Session = Depends(get_db), current_user = Depends
     session_list = [{"session_id": session.session_id, "created_at": session.created_at, "title":session.title} for session in sessions]
     return {"sessions": session_list}
 
+
+@router.delete("/sessions/{session_id}", status_code=status.HTTP_200_OK)
+async def delete_session(
+    session_id: str,
+    db: Session = Depends(get_db),
+    current_user=Depends(get_current_user)
+):
+    """
+    Delete a user session.
+    """
+    session = db.query(ChatSession).filter_by(
+        session_id=session_id,
+        user_id=current_user.user_id
+    ).first()
+
+    if not session:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Session not found or not authorized"
+        )
+
+    try:
+        db.delete(session)
+        db.commit()
+        return {"detail": "Session deleted successfully"}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to delete session: {str(e)}"
+        )
+ 
 
 # @router.post("/query")
 # async def query_endpoint(request: QueryRequestSchema,

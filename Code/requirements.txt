@@ -24,3 +24,4 @@ pypdf
 pytesseract 
 pillow
 pdf2image
+langchain-google-genai

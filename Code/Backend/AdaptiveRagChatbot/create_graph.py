@@ -60,7 +60,7 @@ workflow.add_conditional_edges(
     }
 )
 
-workflow.add_edge("transform_query", "retrieve")
+workflow.add_edge("transform_query", "web_search")
 workflow.add_conditional_edges(
     "generate",
     grade_generations,
