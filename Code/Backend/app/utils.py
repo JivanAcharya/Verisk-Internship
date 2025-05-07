@@ -87,7 +87,7 @@ def rewrite_query(query: str, chat_context: str) -> str:
             query_template = ChatPromptTemplate.from_messages([
                 ("system",
                 "You are query rewriting specialist for University Question and Answering application."
-                " From the input of previous chat histroy and the human input, generate a short concise query for the chat application."),
+                " From the input of previous chat histroy and the human input, generate a clear query for the chat application. Donot make it more than two sentences."),
                 ("system", "STRICTLY RESPOND WITH THE FINAL QUERY ONLY, NO ADDITIONAL TEXT AND PREAMBLE."),
                 ("system", f"Previous Chat History (for context, if relevant):\n{chat_context}"),
                 ("human", "{input}")

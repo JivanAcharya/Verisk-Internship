@@ -11,3 +11,4 @@ passlib
 python-multipart
 emails
 python-jose
+ipython

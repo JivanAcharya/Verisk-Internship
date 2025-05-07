@@ -12,21 +12,21 @@ This document has detailed information of the following universities:
 11.Columbia University
 
 
-Massachusetts Institute of Technology
-Rank: 2 (National), 1 (Engineering)
-Location: Cambridge, MA, United States
-Aliases: MIT
-Number of Students: 11,836 (4,657 graduate)
-Percentage of International Students: 33%
-Subjects Offered: Biological Sciences, Electrical & Electronic Engineering, Computer Science, Business & Management, etc.
-Graduate Programs: Master’s in Computer Science (2 years, on-campus), PhD in Electrical Engineering (4-6 years), MBA (2 years), etc.
-Admissions: Min GPA 3.5, GRE optional, TOEFL 90+, 3 LORs, SOP, resume; Deadline: Dec 15; Fee: $75; Acceptance Rate: 7%
-Tuition: $57,590/year (2024-25)
-Funding: Need-based aid, fellowships (e.g., MIT Presidential Fellowship), TA/RA positions ($30K-$40K/year)
-Housing: On-campus options ($10K-$15K/year), off-campus avg $1,500/month
-Career Outcomes: 92% job placement within 6 months, avg salary $110K (engineering)
-Visa: OPT up to 36 months for STEM
-Website: https://www.mit.edu/, https://gradadmissions.mit.edu/
+Massachusetts Institute of Technology (MIT), located in Cambridge, MA, United States, is a top-ranked institution, holding the 2nd position 
+nationally and the 1st for Engineering. With a total enrollment of 11,836 students, including 4,657 graduates, MIT is known for its diverse 
+student body, with 33% international students. The university offers a wide range of subjects, including Biological Sciences,
+ Electrical & Electronic Engineering, Computer Science, and Business & Management. Key graduate programs feature a 2-year on-campus Master’s in Computer Science,
+  a 4-6 year PhD in Electrical Engineering, and a 2-year MBA.
+Admissions to MIT are highly competitive, with an acceptance rate of 7%. Requirements typically include a minimum GPA of 3.5,
+ GRE is optional, a TOEFL score of 90+, 3 Letters of Recommendation (LORs), a Statement of Purpose (SOP), and a resume.
+  The application deadline is December 15th, and the fee is $75.
+For the 2024-25 academic year, the annual tuition is $57,590. 
+MIT provides various funding opportunities, including need-based aid, prestigious fellowships like the MIT Presidential Fellowship,
+ and Teaching/Research Assistant (TA/RA) positions which typically pay between $30K and $40K per year.
+  Housing options range from on-campus choices costing $10K-$15K annually to off-campus averaging $1,500 per month.
+MIT graduates have strong career outcomes, with a 92% job placement rate within 6 months. Engineering graduates, 
+for example, report an average starting salary of $110K. International students in STEM fields should note the potential eligibility 
+for up to 36 months of Optional Practical Training (OPT). Official websites are https://www.mit.edu/ and https://gradadmissions.mit.edu/.
 
 Harvard University
 Rank: 3 (National), 1 (Law), 1 (Business)

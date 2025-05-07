@@ -1,5 +1,5 @@
 import argparse
-from create_graph import app
+from .create_graph import chatbot
 from IPython.display import Image
 
 # Parse command-line arguments
@@ -8,10 +8,10 @@ parser.add_argument("filename", type=str, help="Output image filename (e.g., gra
 args = parser.parse_args()
 
 # Generate graph image
-image = Image(app.get_graph().draw_mermaid_png())
+image = Image(chatbot.get_graph().draw_mermaid_png())
 
 # Save image with the provided filename
-with open(f"graph_images/{args.filename}", "wb") as f:
+with open(f"AdaptiveRagChatbot/graph_images/{args.filename}", "wb") as f:
     f.write(image.data)
 
 print(f"Graph image saved as {args.filename}")

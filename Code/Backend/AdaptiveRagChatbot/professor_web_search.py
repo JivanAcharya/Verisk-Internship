@@ -47,16 +47,17 @@ class ProfessorSearchResults(BaseModel):
     """
     Represents the results of a professor search
     """
-    name: str
-    title: str
-    department: str
-    email: str
-    phone: str
-    office: str
-    research_interests: str
-    bio: str
-    publications: str
-    website:str
+    name: Optional[str] = None
+    title: Optional[str] = None
+    department: Optional[str] = None
+    email: Optional[str] = None
+    phone: Optional[str] = None
+    office: Optional[str] = None
+    research_interests: Optional[str] = None
+    bio: Optional[str] = None
+    publications: Optional[List] = None
+    website: Optional[str] = None
+
 structured_professor_search = llm.with_structured_output(ProfessorSearchResults)
 
 #Grader Prompt 
