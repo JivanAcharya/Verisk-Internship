@@ -123,25 +123,25 @@ def professor_search_json(question: str):
     Returns:
         ProfessorSearchResults: The results of the search
     """
-    print("\n Professor Search by extracting website from json")
+    #print("\n Professor Search by extracting website from json")
     resp =  keywords_extractor.invoke({"question": question})
-    print(resp.professor_name, resp.university)
+    #print(resp.professor_name, resp.university)
     professor_name = resp.professor_name
     university = resp.university
     
     if professor_name or university:
         professors_website = get_professors_website(professor_name, university)
-        print("\n WEBSITE : ",professors_website)
+        #print("\n WEBSITE : ",professors_website)
         if professors_website:
             data = scrape_website_content(professors_website)
-            print("\n SCRAPED DATA FROM WEBSITE : ",data)
-            print(type(data))
+            #print("\n SCRAPED DATA FROM WEBSITE : ",data)
+            #print(type(data))
             formatted_data = professor_data_extractor.invoke({"document": data})
             formatted_data_dict = formatted_data.model_dump()
             formatted_data_dict["website"] = professors_website  
             
             final_result = ProfessorSearchResults(**formatted_data_dict)
-            print(final_result)
+            #print(final_result)
             return final_result
             
     

@@ -15,7 +15,7 @@ def register_user(user: UserRegisterSchema, db: Session = Depends(get_db)):
     """
     Register a new user.
     """
-    print(type(UserRegisterSchema))
+    #print(type(UserRegisterSchema))
     existing_user = crud.get_user_by_email(db = db, email = user.email)
     if existing_user:
         raise HTTPException(
@@ -27,7 +27,7 @@ def register_user(user: UserRegisterSchema, db: Session = Depends(get_db)):
 
     user = crud.create_user(db= db, user_create = user_create)
     
-    print("\n ********  USER CREATED *********")
+    #print("\n ********  USER CREATED *********")
 
     if user.email:
         email_data = generate_new_account_email(
@@ -38,7 +38,7 @@ def register_user(user: UserRegisterSchema, db: Session = Depends(get_db)):
             subject=email_data.subject,
             html_content=email_data.html_content,
         )
-    print("\n ********  EMAIL SENT *********")
+    #print("\n ********  EMAIL SENT *********")
     return { 
         "message":"User Registered Successfully",
         "user":{
@@ -53,7 +53,7 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session=  Depend
     Login a user and returns a jwt token
     """
     user = crud.authenticate(db= db, email = form_data.username, password = form_data.password)
-    # print(user)
+    # #print(user)
     if not user:
         raise HTTPException(
             status_code = status.HTTP_401_UNAUTHORIZED,

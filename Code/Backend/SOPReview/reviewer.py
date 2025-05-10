@@ -3,47 +3,61 @@ from .fileparser import parser
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 import json
+import re
 
 llm = ChatGroq(model = "meta-llama/llama-4-scout-17b-16e-instruct", temperature=0)
 
-system = """You are an expert in reviewing academic Statements of Purpose (SOPs). A student has written an SOP to apply for graduate studies. Your task is to critically review and analyze the SOP based on the following four aspects:
+system = """As an expert reviewer of academic Statements of Purpose (SOPs), your primary function is to analyze provided text documents.
 
-1. **Grammar & Style**
-- Check for grammatical errors, sentence structure issues, and academic tone.
-- Highlight passive voice, repetition, or verbosity.
+**Strictly follow these instructions:**
 
-2. **Content Structure**
-- Evaluate if the SOP follows a logical structure: introduction, academic background, professional experience (if any), research interests, and conclusion.
-- Point out missing or disorganized sections.
+1.  **Initial Document Check:** Examine the provided text document. If it is NOT a valid academic Statement of Purpose, immediately return the following JSON response and cease all further processing, if it is a valid document move on to step 2 and return the output as stated in no 3.:
 
-3. **Clarity & Coherence**
-- Determine if the SOP is easy to follow, with smooth transitions and clear ideas.
-- Flag vague or ambiguous statements.
+    {{
+        "message": "<Your short feedback stating that the document is not a valid SOP."
+    }}
 
-4. **Strength of Research Interests**
-- Assess how clearly the student states their research goals and how well it aligns with their past experience.
-- Comment on whether the SOP mentions professors, labs, or specific projects at the target institution (if applicable).
 
----
+2.  **SOP Analysis (If Valid):** If the document IS a valid academic Statement of Purpose, proceed with a critical review based on the following four key aspects. Do not perform this analysis if the document is not a valid SOP.
 
-Return your feedback strictly in the following JSON format for easy parsing, no preamble:
+    * **Grammar & Style:**
+        * Assess for grammatical errors, punctuation issues, and sentence structure problems.
+        * Evaluate the overall tone for academic appropriateness.
+        * Identify and note instances of passive voice, unnecessary repetition, or overly verbose phrasing.
 
-{{
-  "grammar_and_style": "<your feedback here>",
-  "structure": "<your feedback here>",
-  "clarity_and_coherence": "<your feedback here>",
-  "research_interests_strength": "<your feedback here>",
-  "overall_rating": "<Strong / Moderate / Needs Improvement>"
-}}
+    * **Content Structure:**
+        * Determine if the SOP follows a logical and conventional structure, typically including: Introduction (stating purpose), Academic Background, Professional Experience (if any), Research Interests/Goals, and Conclusion.
+        * Point out any missing sections, illogical flow, or disorganization.
 
----
+    * **Clarity & Coherence:**
+        * Assess how easy the SOP is to read and understand.
+        * Evaluate the flow between paragraphs and ideas; are transitions smooth?
+        * Identify and flag any statements that are vague, ambiguous, or difficult to interpret.
+
+    * **Strength of Research Interests:**
+        * Analyze how clearly the student articulates their specific research goals and areas of interest.
+        * Evaluate how well the stated research interests connect with and are supported by the student's past academic background and experience.
+        * Note whether the SOP mentions specific faculty members, research labs, or projects at the target institution, if applicable based on the SOP's content.
+
+3.  **Output Format:** After completing the SOP analysis (and only if the document was a valid SOP), generate the review feedback **strictly** in the following JSON format. **Do not include any preamble or additional text outside of this JSON structure.**
+
+    {{
+      "grammar_and_style": "<Your detailed feedback on grammar, style, errors, tone, passive voice, repetition, and verbosity here>",
+      "structure": "<Your detailed feedback on the logical flow, presence/absence of key sections, and organization here>",
+      "clarity_and_coherence": "<Your detailed feedback on readability, transitions, smooth flow, and vague/ambiguous statements here>",
+      "research_interests_strength": "<Your detailed feedback on clarity of research goals, alignment with background, and mention of specific institutional details (faculty/labs/projects) here>",
+      "overall_rating": "<Select ONE option: Strong / Moderate / Needs Improvement>"
+    }}
+
+
+**In summary: Validate if the document is an SOP. If not, return the specific error JSON. If it is, analyze based on the four criteria and return the structured feedback JSON.**
 
 """
 
 review_prompt = ChatPromptTemplate.from_messages(
     [
         ("system",system),
-       ("human", "SOP to review :\n\n {sop_text}"),
+       ("human", "Document to review :\n\n {sop_text}"),
     ]
 )
 
@@ -59,14 +73,28 @@ def review_sop(sop_text):
             )
 
     output = res.content 
-    output = output.strip("`").strip()
-    output = output.replace("json", "",1)
+    json_str = get_json_from_resp(output)
+    clean_json = json.loads(json_str)
+    return clean_json
+    # output = output.strip("`").strip()
+    # output = output.replace("json", "",1)
 
-    # convert to dict
-    clean_json = json.loads(output)
+    # # convert to dict
+    # clean_json = json.loads(output)
 
     # save to json remove later
-    with open("SOPReview/output.json", "w") as f:
-       json.dump(clean_json, f, indent=4)
+    # with open("SOPReview/output.json", "w") as f:
+    #    json.dump(clean_json, f, indent=4)
     
-    return clean_json
+def get_json_from_resp(text: str):
+    # Extract JSON block inside triple backticks
+    match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
+
+    if match:
+        json_str = match.group(1)
+    else:
+        # If no triple backtick block, try to extract bare JSON
+        json_str = text.strip()
+
+    # Convert to dict
+    return json_str

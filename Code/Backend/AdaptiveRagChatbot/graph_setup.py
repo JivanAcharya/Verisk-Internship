@@ -37,7 +37,7 @@ def retrieve(state):
     Returns:
         state (dict): New key added to state, documents, that contains retrieved documents
     """
-    print("\n RETRIEVE")
+    #print("\n RETRIEVE")
     question = state['question']
 
     documents = retriever.invoke(question)
@@ -72,7 +72,7 @@ def generate(state):
         state (dict): New key added to state, generation, that contains LLM generation
     """
 
-    print("\n GENERATE")
+    #print("\n GENERATE")
     question = state['question']
     documents = state['documents']
 
@@ -91,7 +91,7 @@ def grade_documents(state):
     Returns:
         state (dict): Updates documents key with only filtered relevant documents
     """
-    print("\n Check Document relevance to question")
+    #print("\n Check Document relevance to question")
     question = state["question"]
     documents = state["documents"]
 
@@ -102,10 +102,10 @@ def grade_documents(state):
         )
         grade = score.binary_score
         if grade == "yes":
-            print("\n Document is relevant")
+            #print("\n Document is relevant")
             filtered_docs.append(d)
         else:
-            print("\nDocument is not relevant to the question")
+            #print("\nDocument is not relevant to the question")
             continue
     return {"documents": filtered_docs, "question": question}
 
@@ -119,13 +119,13 @@ def transform_query(state):
     Returns:
         state (dict): Updates question key with a re-phrased question
     """
-    print("\n Transform Query")
+    #print("\n Transform Query")
     question = state["question"]
     documents = state["documents"]
 
     #rewrite query
     res = question_rewriter.invoke({"question": question})
-    print("\nNew transformed query in adaptive rag", res.query)
+    #print("\nNew transformed query in adaptive rag", res.query)
     return {"documents": documents, "question": res.query}
 
 def professor_search(state):
@@ -142,7 +142,7 @@ def professor_search(state):
 
 
 def web_search(state):
-    print("\nWeb Search")
+    #print("\nWeb Search")
     question = state["question"]
 
     #web search
@@ -163,7 +163,7 @@ def professor_search_from_json(state):
     Returns:
         state (dict): Updates documents key with appended json results
     """
-    print("\n Professor Search from JSON")
+    #print("\n Professor Search from JSON")
     question = state["question"]
     
     #json search
@@ -183,7 +183,7 @@ def format_search_results(state):
     """
     question = state['question']
     documents = state['documents']
-    print("\n Format Search Results")
+    #print("\n Format Search Results")
     resp = llm.invoke(f"""For the question by the user :: {question} \n
                         The results of web search are {documents}. \n Now give the answer only addressing the user question from the retrieved web search document
                         \n NO PREAMBLE AND EXTRA TEXTS""")
@@ -200,7 +200,7 @@ def general_query(state):
         state (dict):Update generation with the responded generated answer
     """
     question = state['question']
-    print("\n General Query")
+    #print("\n General Query")
     resp = llm.invoke(question)
     return {"question":question, "generation":resp.content}
 
@@ -218,11 +218,11 @@ def route_question(state):
     Returns:
         str: Next node to call
     """
-    print("\n Route Question")
+    #print("\n Route Question")
     question = state["question"]
 
     source = question_router.invoke({"question": question})
-    print("\n SOURCE:"+source.datasource)
+    #print("\n SOURCE:"+source.datasource)
     if source.datasource == "vectorstore":
         return "vectorstore"
     elif source.datasource == "professor_search":
@@ -241,21 +241,21 @@ def route_professor_query(state):
     Returns:
         str: Next node to call
     """
-    print("\n Route Professor Query")
+    #print("\n Route Professor Query")
     question = state["question"]
     source = professor_search_router.invoke({"question": question})
-    print("\n SOURCE:"+source.datasource)
+    #print("\n SOURCE:"+source.datasource)
     if source.datasource == "json_data":
         return "json_data"
     else:
         return "web_search"
 
 def route_json_results(state):
-    print("\n Route according to JSON Results")
+    #print("\n Route according to JSON Results")
     question = state["question"]
     documents = state["documents"]
     source = json_results_router.invoke({"question":question,"documents": documents})
-    print("\n SOURCE:"+source.datasource)
+    #print("\n SOURCE:"+source.datasource)
     if source.datasource == "web_search":
         return "not found"
     else: 
@@ -272,20 +272,21 @@ def decide_to_generate(state):
         str: Binary decision for next node to call
     """
 
-    print("\n Assess graded documents")
+    #print("\n Assess graded documents")
     state["question"]
     filtered_documents = state["documents"]
 
     if not filtered_documents:
         # All documents have been filtered check_relevance
         # We will re-generate a new query
-        print(
-            "\nDecision: All docs not relevant, transform query"
-        )
+        #print
+        # (
+        #     "\nDecision: All docs not relevant, transform query"
+        # )
         return "transform_query"
     else:
         # We have relevant documents, so generate answer
-        print("\nDecision: Generate answer")
+        #print("\nDecision: Generate answer")
         return "generate"
     
 def grade_generations(state):
@@ -298,7 +299,7 @@ def grade_generations(state):
     Returns:
         str: Decision for next node to call
     """
-    print("\n Check hallucinations")
+    #print("\n Check hallucinations")
     question = state["question"]
     documents = state["documents"]
     generation = state["generation"]
@@ -307,18 +308,18 @@ def grade_generations(state):
     )
     grade = score.binary_score
     if grade == "yes":
-        print("\n Generation is grounded in the documents")
-        print("\n Grade generation vs question")
+        #print("\n Generation is grounded in the documents")
+        #print("\n Grade generation vs question")
         score = answer_grader.invoke(
             {"question": question, "generation": generation}
         )   
         grade = score.binary_score
         if grade == "yes":
-            print("\n Decision: Generation answers the question")
+            #print("\n Decision: Generation answers the question")
             return "useful"
         else:
-            print("\n Decision: Generation does not addreess question")
+            #print("\n Decision: Generation does not addreess question")
             return "not useful"
     else:
-        print("\n Generation is not grounded in the documents, Retry...")
+        #print("\n Generation is not grounded in the documents, Retry...")
         return "hallucination"

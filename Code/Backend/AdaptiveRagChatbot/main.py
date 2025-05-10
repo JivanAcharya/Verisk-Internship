@@ -8,4 +8,4 @@ inputs = {
 
 resp = chatbot.invoke(inputs)
 
-print(resp["question"],resp["generation"])
+# print(resp["question"],resp["generation"])

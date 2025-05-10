@@ -35,7 +35,7 @@ TokenDep = Annotated[str, Depends(reusable_oauth2)]
 
 def get_current_user(token:TokenDep,db:SessionDep) -> User:
     try:
-        print("\n TOKEN IN QUERY: ",token)
+        # print("\n TOKEN IN QUERY: ",token)
         if token_expired(token):
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Refresh token is expired.")
 

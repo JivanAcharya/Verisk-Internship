@@ -60,7 +60,7 @@ async def answer_query(session_id :str,
         if not session.title and request.query:
             session.title = request.query[:20] + "..."
            
-        print(f"Session ID: {session.session_id}, Title : {session.title}")
+        #print(f"Session ID: {session.session_id}, Title : {session.title}")
 
         # retrieve last 5 chat messages for the session (this query is okay)
         chat_history = (db.query(ChatHistory)
@@ -73,10 +73,10 @@ async def answer_query(session_id :str,
         #joining to a single string to pass the context
         chat_context = "\n".join(f"{msg.role.capitalize()}: {msg.content}" for msg in reversed(chat_history))
 
-        print("\nChat context is :: ", chat_context)
+        #print("\nChat context is :: ", chat_context)
         #rewriting the query basedo on chat history context and current query
         rewritten_query = rewrite_query(query = request.query, chat_context = chat_context)
-        print("\n Rewritten Query: ", rewritten_query)
+        #print("\n Rewritten Query: ", rewritten_query)
 
         inputs = {
             "question": rewritten_query
@@ -84,7 +84,7 @@ async def answer_query(session_id :str,
 
         ai_response = chatbot.invoke(inputs)
 
-        print(ai_response["question"],ai_response["generation"])
+        #print(ai_response["question"],ai_response["generation"])
 
         # Create the AI message object
         ai_message = ChatHistory(
@@ -195,7 +195,7 @@ async def delete_session(
 #         # retrieve the last 5 chat history for the user for the session_id
 #         session = db.query(ChatSession).filter_by(session_id=request.session_id, user_id=current_user.user_id).first()
 #         if not session:
-#             print("Session not found for user, new session will be created")
+#             #print("Session not found for user, new session will be created")
 #         chat_history = (db.query(ChatHistory)
 #             .filter_by(session_id=request.session_id)
 #             .order_by(ChatHistory.created_at
@@ -214,7 +214,7 @@ async def delete_session(
 #         }
 #         response = chatbot.invoke(inputs)
 
-#         print(response["question"],response["generation"])
+#         #print(response["question"],response["generation"])
 
 #         # Save the question and answer to the database
 #         save_chat_history(user_id = current_user.user_id,
