@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./Backend 
+    image: unibro-backend-image:production-v1 
+    ports:
+      - "8080:8080"
+    volumes:
+      - chromadb_data:/app/Backend/chroma_db
+    env_file:
+      - ./Backend/.env
+    restart: always
+    # environment:
+      
+  frontend:
+    build: ./Frontend 
+    image: unibro-frontend-image:production-v1 
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always
+
+volumes:
+  chromadb_data:
+
+
+# version: "3.8"
+
+# services:
+#   backend:
+#     image: unibro-backend-image:build-2
+#     ports:
+#       - "8080:8080"
+#     volumes:
+#       - chromadb_data:/app/Backend/chroma_db
+#     env_file:
+#       - ./Backend/.env
+#     restart: always
+
+#   frontend:
+#     image: unibro-frontend-image:latest
+#     ports:
+#       - "5173:80"
+#     depends_on:
+#       - backend
+#     restart: always
+
+# volumes:
+#   chromadb_data:
