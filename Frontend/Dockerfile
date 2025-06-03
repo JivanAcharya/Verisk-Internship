@@ -9,7 +9,7 @@ RUN npm install
 COPY . .
 
 RUN npm run build
-
+ ADD source dest
 # Step 2: Serve with NGINX
 FROM nginx:alpine
 

@@ -67,7 +67,7 @@ def send_email(
         smtp_options["password"] = settings.SMTP_PASSWORD
     response = message.send(to=email_to, smtp=smtp_options)
 
-    print("\n ********  EMAIL SENT *********")
+    # print("\n ********  EMAIL SENT *********")
     # logger.info(f"send email result: {response}")
 
     
@@ -88,7 +88,7 @@ def rewrite_query(query: str, chat_context: str) -> str:
                 ("system",
                 "You are query rewriting specialist for University Question and Answering application."
                 " From the input of previous chat histroy and the human input, generate a clear query for the chat application. Donot make it more than two sentences."),
-                ("system", "STRICTLY RESPOND WITH THE FINAL QUERY ONLY, NO ADDITIONAL TEXT AND PREAMBLE."),
+                ("system", "STRICTLY RESPOND WITH THE FINAL QUERY ONLY, IF THE CONTEXT DOES NOT SEEM RELEVANT DONOT REWRITE JUST RETURN THE QUERY AS IT IS, NO ADDITIONAL TEXT AND PREAMBLE."),
                 ("system", f"Previous Chat History (for context, if relevant):\n{chat_context}"),
                 ("human", "{input}")
             ])

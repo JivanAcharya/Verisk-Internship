@@ -73,10 +73,10 @@ async def answer_query(session_id :str,
         #joining to a single string to pass the context
         chat_context = "\n".join(f"{msg.role.capitalize()}: {msg.content}" for msg in reversed(chat_history))
 
-        #print("\nChat context is :: ", chat_context)
+        print("\nChat context is :: ", chat_context)
         #rewriting the query basedo on chat history context and current query
         rewritten_query = rewrite_query(query = request.query, chat_context = chat_context)
-        #print("\n Rewritten Query: ", rewritten_query)
+        print("\n Rewritten Query: ", rewritten_query)
 
         inputs = {
             "question": rewritten_query

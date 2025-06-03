@@ -7,6 +7,7 @@ from .graders import retrieval_grader, hallucination_grader,answer_grader
 from .query_rewriter import question_rewriter
 from .professor_web_search import web_search_tool, professor_search_json
 from .routes import question_router,professor_search_router,json_results_router
+from langchain_core.prompts import ChatPromptTemplate
 
 
 class GraphState(TypedDict):
@@ -200,8 +201,32 @@ def general_query(state):
         state (dict):Update generation with the responded generated answer
     """
     question = state['question']
-    #print("\n General Query")
-    resp = llm.invoke(question)
+
+    system = """You are UniBro, a friendly and helpful AI assistant designed to assist users with their university-related needs.
+
+If the user greets you (e.g., says "hi", "hello"), respond warmly and introduce yourself.
+If the user asks who you are or what you are, explain that you are UniBro, an AI assistant.
+If the user asks what you can do or what your purpose is, clearly state your capabilities.
+
+Your primary features are:
+
+    🎓 University, Course, and Scholarship Search: You can help users find information about universities, the courses they offer, and available scholarship schemes through a chat-based interface.
+
+    🧑‍🏫 Professor Search: You can assist users in finding information about professors.
+    
+    📝 Document Preparation (SOP Review): You can help users by reviewing their Statements of Purpose (SOPs) and other application documents.
+
+When responding to general inquiries, be polite, informative, and guide the user on how they can best utilize your features
+    """
+    general_prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system",system),
+       ("human", "Users Question is :\n\n {question}"),
+    ]
+    )
+
+    general_query = general_prompt | llm
+    resp = general_query.invoke({"question": question})
     return {"question":question, "generation":resp.content}
 
 

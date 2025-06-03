@@ -9,9 +9,9 @@ app = FastAPI(title=settings.PROJECT_NAME, version="1.0.0")
 
 # ✅ Add this: CORS setup
 origins = [
-    "http://127.0.0.1:5173",  
-    "http://localhost:5173",  
-    "http://127.0.0.1:80",  
+    "http://127.0.0.1:8000",  
+    "http://localhost:8000",  
+    "http://127.0.0.1",  
     "http://localhost:80", 
     "http://frontend:80",
     "http://backend:80",

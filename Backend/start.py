@@ -12,12 +12,13 @@ def start_app():
 
     # Decide whether to use reload mode (only for non-production)
     is_reload = (env_vars.get("DEPLOYMENT") or "DEV").upper() != "PROD"
+    print("Is_reload: ", is_reload)
 
     uvicorn.run(
         "app.main:app",
         host="0.0.0.0",
         port=int(env_vars.get("PORT", 8000)),
-        reload=False,
+        reload=is_reload,
         workers=None if is_reload else num_cores  # `reload` and `workers` cannot be used together
     )
 

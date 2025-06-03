@@ -69,7 +69,7 @@ def review_sop(sop_text):
     Review the SOP text and return the feedback in JSON format.
     """
     res = reviewer.invoke(
-                {"sop_text": sop_text}
+                   {"sop_text": sop_text} 
             )
 
     output = res.content 

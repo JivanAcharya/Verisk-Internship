@@ -1,9 +1,24 @@
 version: "3.8"
 
 services:
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432"
+
   backend:
-    build: ./Backend 
-    image: unibro-backend-image:production-v1 
+    build:
+      context: ./Backend
+    depends_on:
+      - postgres
     ports:
       - "8080:8080"
     volumes:
@@ -11,26 +26,69 @@ services:
     env_file:
       - ./Backend/.env
     restart: always
-    # environment:
-      
+
   frontend:
-    build: ./Frontend 
-    image: unibro-frontend-image:production-v1 
-    ports:
-      - "80:80"
+    build:
+      context: ./Frontend
     depends_on:
       - backend
+    ports:
+      - "80:80"
     restart: always
 
 volumes:
   chromadb_data:
+  postgres_data:
 
+# version: "3.8"
+
+# services:
+#   postgres:
+#     image: postgres:16
+#     container_name: postgres
+#     restart: always
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: postgres
+#       POSTGRES_DB: postgres
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+#     ports:
+#       - "5432"
+
+#   backend:
+#     build:
+#       context: ./Backend
+#     image: unibro-backend-image:build-4
+#     depends_on:
+#       - postgres
+#     ports:
+#       - "8080:8080"
+#     volumes:
+#       - chromadb_data:/app/Backend/chroma_db
+#     env_file:
+#       - ./Backend/.env
+#     restart: always
+
+#   frontend:
+#     build:
+#       context: ./Frontend
+#     image: unibro-frontend-image:latest
+#     depends_on:
+#       - backend
+#     ports:
+#       - "80:80"
+#     restart: always
+
+# volumes:
+#   chromadb_data:
+#   postgres_data:
 
 # version: "3.8"
 
 # services:
 #   backend:
-#     image: unibro-backend-image:build-2
+#     image: unibro-backend-image:build-3
 #     ports:
 #       - "8080:8080"
 #     volumes:
@@ -42,10 +100,37 @@ volumes:
 #   frontend:
 #     image: unibro-frontend-image:latest
 #     ports:
-#       - "5173:80"
+#       - "8000:80"
 #     depends_on:
 #       - backend
 #     restart: always
 
 # volumes:
 #   chromadb_data:
+# version: "3.8"
+
+# services:
+#   backend:
+#     build: ./Backend 
+#     image: unibro-backend-image:production-v1 
+#     ports:
+#       - "8080:8080"
+#     volumes:
+#       - chromadb_data:/app/Backend/chroma_db
+#     env_file:
+#       - ./Backend/.env
+#     restart: always
+#     # environment:
+      
+#   frontend:
+#     build: ./Frontend 
+#     image: unibro-frontend-image:production-v1 
+#     ports:
+#       - "80:80"
+#     depends_on:
+#       - backend
+#     restart: always
+
+# volumes:
+#   chromadb_data:
+
